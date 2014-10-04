@@ -1,16 +1,12 @@
-//var http = require('http');
+
 var express = require('express');
 
 var app = module.exports = express();
-
-/*http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
-    res.end('Can i haz app.js host another one or probably?');
-}).listen(4080);*/
 
 app.get('/', function(req,res){
     res.send('Hello from express +1');
 });
 
-app.listen(4080);
-console.log('Server running at http://*:4080/');
+app.listen(4080, 'vps.pieszynski.com' ,function() {
+    console.log('Server running at http://*:4080/');
+});

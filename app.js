@@ -9,10 +9,8 @@ var app = module.exports = express();
 }).listen(4080);*/
 
 app.get('/', function(req,res){
-    res.send('Hello from express');
+    res.send('Hello from express +1');
 });
 
-app.listen(4080, function() {
-    console.log('srv Okey');
-});
+app.listen(4080);
 console.log('Server running at http://*:4080/');

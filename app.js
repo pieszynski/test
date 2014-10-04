@@ -3,11 +3,9 @@ var express = require('express');
 
 var app = module.exports = express();
 
-app.use(/^\/api\//i, function(req,res){
-    res.send('Hello API');
-})
+app.use('/static', express.static(__dirname + '/static'))
 
-app.get(function(req,res){
+app.get(/.*/i, function(req,res){
     res.send('Hello from express +1');
 });
 

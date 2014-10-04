@@ -5,7 +5,7 @@ var app = module.exports = express();
 
 app.use('/static', express.static(__dirname + '/static'))
 
-app.get(/.*/i, function(req,res){
+app.get('/', function(req,res){
     res.send('Hello from express +1');
 });
 

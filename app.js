@@ -13,6 +13,6 @@ app.get('/', function(req,res){
 });
 
 app.listen(4080, function() {
-    console.log('srv OK');
+    console.log('srv Okey');
 });
 console.log('Server running at http://*:4080/');

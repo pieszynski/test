@@ -1,7 +1,7 @@
 //var http = require('http');
 var express = require('express');
 
-var app = module.exports = express.createServer();
+var app = module.exports = express();
 
 /*http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});

@@ -7,7 +7,7 @@ app.use(/^\/api\//i, function(req,res){
     res.send('Hello API');
 })
 
-app.get(function(req,res){
+app.get('/', function(req,res){
     res.send('Hello from express +1');
 });
 

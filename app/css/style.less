@@ -1,0 +1,31 @@
+@font-path: '../fonts/';
+@font-name-regular: 'R1';
+@font-name-bolder: 'R2';
+@font-fallback: 'Roboto-Regular';
+@font-base: 'RobotoDraft';
+@font-bolder: 'RobotoDraftBolder';
+
+// Import the fonts
+@font-face {
+    font-family: '@{font-fallback}';
+    src: url('@{font-path}@{font-fallback}.ttf') format('truetype');
+}
+@font-face {
+    font-family: '@{font-base}';
+    src: url('@{font-path}@{font-name-regular}.woff') format('woff');
+}
+@font-face {
+    font-family: '@{font-bolder}';
+    src: url('@{font-path}@{font-name-bolder}.woff') format('woff');
+}
+
+html {
+    font-size: 13px;
+    line-height: 24px;
+    font-family: '@{font-base}','@{font-fallback}',Helvetica,Arial,sans-serif
+}
+
+.bolder {
+    font-size: 24px;
+    font-family: '@{font-bolder}','@{font-fallback}',Helvetica,Arial,sans-serif
+}

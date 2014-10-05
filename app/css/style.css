@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'RobotoDraft';
+  src: url('../fonts/R1.woff') format('woff');
+}
+@font-face {
+  font-family: 'RobotoDraftBolder';
+  src: url('../fonts/R2.woff') format('woff');
+}
+html {
+  font-size: 13px;
+  line-height: 24px;
+  font-family: 'RobotoDraft', 'Roboto-Regular', Helvetica, Arial, sans-serif;
+}
+.bolder {
+  font-size: 24px;
+  font-family: 'RobotoDraftBolder', 'Roboto-Regular', Helvetica, Arial, sans-serif;
+}

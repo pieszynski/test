@@ -16,6 +16,34 @@ html {
   font-family: 'RobotoDraft', 'Roboto-Regular', Helvetica, Arial, sans-serif;
 }
 .bolder {
-  font-size: 24px;
   font-family: 'RobotoDraftBolder', 'Roboto-Regular', Helvetica, Arial, sans-serif;
+}
+body {
+  background-color: #f9f9f9;
+  margin: 0px;
+  padding: 0px;
+}
+a {
+  color: #3f51b5;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+header {
+  background-color: #3f51b5;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+  color: white;
+  font-size: 24px;
+  position: relative;
+}
+.header-title {
+  padding: 20px 72px;
+}
+.preview {
+  background-color: #eee;
+  padding: 5px 72px;
+}
+.content {
+  padding: 20px 72px;
 }

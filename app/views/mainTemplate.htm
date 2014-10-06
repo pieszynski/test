@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>pieszynski.com</title>
 
-    <!-- Bootstrap -->
-    <!-- <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- Custom CSSes -->
     <link href="/css/style.css" rel="stylesheet">
 
@@ -17,15 +15,73 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    %%%body%%%
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/jquery/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="/bootstrap/js/bootstrap.min.js"></script> -->
     <!-- AngularJS -->
-    <script src="/angular/angular.min.js"></script>
+    <script src="/angular/angular.js"></script>
+    <!-- Skrypt wewnętrzny z metodami pomocniczymi -->
+    <script type="text/javascript">
+      window.DI = new function(){
+        var self = this;
+        var actions = [];
+        var app = angular.module('appRoot',[])
+
+        self.registerAction = function(action) {
+          if ('function' !== typeof(action))
+            return;
+
+          actions.push(action);
+        };
+
+        self.registerController = function(name, ctrlDef){
+          app.controller(name, ctrlDef);
+        }
+
+        self.invokeAll = function(){
+          for(var f = 0; f < actions.length; f++) {
+            actions[f]();
+          }
+        };
+      }();
+
+      DI.registerController('rootCtrl', function(){
+        var self = this,
+            blockTitleUpdate = false;
+        self.pageTitle = 'To jest fajny tytuł strony';
+
+        self.setPageTitleOnce = function (title) {
+          if (blockTitleUpdate)
+            return;
+
+          self.pageTitle = title;
+          blockTitleUpdate = true;
+        }
+
+        DI.root = function() {
+          return {
+            setPageTitleOnce : self.setPageTitleOnce
+          }
+        }();
+      })
+    </script>
+  </head>
+  <body ng-app="appRoot" ng-controller="rootCtrl as root">
+    <header>
+      <div class="header-title">
+        {{root.pageTitle}}
+      </div>
+    </header>
+
+    <div class="preview">
+    <a target="_blank" href="http://www.google.com/design/spec/style/color.html#color-ui-color-palette">Paleta</a>
+    </div>
+
+    <div class="content">
+%%%body%%%
+    </div>
+
+    <!-- wywołanie wszystkich zarejestrowanych akcji -->
+    <script type="text/javascript">DI.invokeAll();</script>
   </body>
 </html>

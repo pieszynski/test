@@ -1,15 +1,19 @@
 
+var viewsPath = __dirname + '/app/views/';
+
 var compression = require('compression')
 var express = require('express');
 var router = express.Router();
-var htmlViews = require('./htmlViews');
+var htmlViewsClass = require('./htmlViews');
+
+htmlViews = new htmlViewsClass(viewsPath, 'mainTemplate').init();
 
 var app = module.exports = express();
 
-app.set('views', './app/views');
-app.set('view engine', 'zz');
+app.set('views', viewsPath);
+app.set('view engine', 'htm');
 
-app.engine('zz', htmlViews.engine);
+app.engine('htm', htmlViews.__express);
 
 app.use(compression());
 
@@ -25,20 +29,23 @@ router.param('topic', function(req, res, next, topic) {
     next();
 });
 
-router.get('/:topic', function(req, res, next) {
-    res.render('o', req.site);
-});
+function defaultRouteAction(req,res,next) {
+    req.site = req.site || {};
+    req.site.topic = req.site.topic || 'home';
 
-app.get('/:topic', router);
+    res.render(htmlViews.getMainTemplateName(), req.site);
+}
 
+router.get('/:topic', defaultRouteAction);
+router.get('/', defaultRouteAction);
 
-app.get(/.*/i, function(req,res){
-    //res.send('<h1>Hello from express +1</h1><div><img src="/img/PIA.jpg"/></div>');
-    res.redirect('/error/#404');
-});
+app.get('/favicon.ico', function(req,res){
+    res.status(404).end();
+})
+
+app.get(/.*/i, router);
+app.get('/', router);
 
 app.listen(4080, function() {
     console.log('Server running at http://*:4080/');
 });
-
-htmlViews.test();

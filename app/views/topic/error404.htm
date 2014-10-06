@@ -1,2 +1,12 @@
-<h1>Strona nie istnieje</h1>
-<p><img src="/img/PIA.jpg"/></p>
+
+<script type="text/javascript">
+    DI.registerController('errorCtrl', function(){
+        var self = this;
+        DI.root.setPageTitleOnce('Błąd 404')
+    });
+</script>
+
+<div ng-controller="errorCtrl as error">
+    <h1>Strona nie istnieje</h1>
+    <p><img src="/img/PIA.jpg"/></p>
+</div>

@@ -1,13 +1,11 @@
 
 <script type="text/javascript">
-(function(){
     DI.registerController('homeCtrl', function(){
         var self = this;
         DI.root.setPageTitleOnce('Strona główna');
 
         self.komu = "Andrzejowi";
     });
-})();
 </script>
 
 <div ng-controller="homeCtrl as home">

@@ -37,9 +37,15 @@ html {
     font-family: '@{font-bolder}','@{font-fallback}',Helvetica,Arial,sans-serif
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     background-color: #f9f9f9;
     margin: 0px;
+    margin-bottom: @footerHeight;
     padding: 0px;
 }
 
@@ -83,21 +89,20 @@ header {
 }
 
 .content {
-    margin-bottom: @footerHeight;
-    padding: 20px @marginSides;
+    //padding: 20px @marginSides @footerHeight @marginSides;
+    padding: 0 @marginSides;
 }
 
-footer {
+.footer {
     background-color: @mainColor;
-    //bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0;
+    color: @revColor;
     max-height: @footerHeight;
+    //
     position: absolute;
     width: 100%;
 }
 
-.footer {
-    color: @revColor;
+.footer-content {
     padding: 10px @marginSides;
 }

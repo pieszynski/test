@@ -22,29 +22,38 @@
     <script src="/jquery/jquery.min.js"></script>
     <!-- AngularJS -->
     <script src="/angular/angular.js"></script>
+    <!-- UnderscoreJS -->
+    <script src="/underscore/underscore-min.js"></script>
+    <!-- Underscore.string -->
+    <script src="/underscorestring/underscore.string.min.js"></script>
     <!-- Skrypt wewnętrzny z metodami pomocniczymi -->
     <script type="text/javascript" src="/js/mainTemplate.js"></script>
   </head>
   <body ng-app="appRoot" ng-controller="rootCtrl as root">
     <header>
       <div class="header-title">
-        <a href="/">pieszynski.com</a> <span ng-show="root.pageTitle">&gt; {{root.pageTitle}}</span>
+        <span><a href="/">pieszynski.com</a></span>
+        <span ng-show="root.pageTitle">&gt; {{root.pageTitle}}</span>
       </div>
     </header>
 
     <div class="preview">
-    <a target="_blank" href="http://www.google.com/design/spec/style/color.html#color-ui-color-palette">Paleta</a>
+      <span><a target="_blank" href="http://www.google.com/design/spec/style/color.html#color-ui-color-palette">Paleta</a></span>
+      |
+      <span><a href="/mobilizacja2014">Mobilizacja 2014</a></span>
+      |
+      <span>trololo</span>
     </div>
 
     <div class="content">
 %%%body%%%
     </div>
 
-    <footer>
-      <div class="footer">
-        To jest stopka strony
+    <div class="footer">
+      <div class="footer-content">
+        Fajna stopka?
       </div>
-    </footer>
+    </div>
 
     <!-- wywołanie wszystkich zarejestrowanych akcji -->
     <script type="text/javascript">DI.invokeAll();</script>

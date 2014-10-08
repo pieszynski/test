@@ -18,9 +18,14 @@ html {
 .bolder {
   font-family: 'RobotoDraftBolder', 'Roboto-Regular', Helvetica, Arial, sans-serif;
 }
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
   background-color: #f9f9f9;
   margin: 0px;
+  margin-bottom: 50px;
   padding: 0px;
 }
 img {
@@ -55,18 +60,24 @@ header {
   padding: 5px 72px;
 }
 .content {
-  margin-bottom: 50px;
-  padding: 20px 72px;
+  padding: 0 72px;
 }
-footer {
+.footer {
   background-color: #3f51b5;
-  left: 0;
-  right: 0;
+  bottom: 0;
+  color: #ffffff;
   max-height: 50px;
   position: absolute;
   width: 100%;
 }
-.footer {
-  color: #ffffff;
+.footer-content {
   padding: 10px 72px;
 }
+/*.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-height: @footerHeight;
+    background-color: @mainColor;
+    color: @revColor;
+}*/

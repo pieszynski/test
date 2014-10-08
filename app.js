@@ -21,6 +21,8 @@ app.use(express.static(__dirname + '/app'));
 //app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist'));
 app.use('/angular', express.static(__dirname + '/bower_components/angular'));
 app.use('/jquery', express.static(__dirname + '/bower_components/jquery/dist'));
+app.use('/underscore', express.static(__dirname + '/bower_components/underscore'));
+app.use('/underscorestring', express.static(__dirname + '/bower_components/underscore.string/dist'));
 
 router.param('topic', function(req, res, next, topic) {
     req.site = req.site || {};

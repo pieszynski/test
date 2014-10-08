@@ -1,0 +1,80 @@
+<script type="text/javascript">
+(function(window,$,angular){
+    DI.registerController('mobi14Ctrl', function($scope){
+        var self = this;
+        self.dni = 15;
+        self.godzin = 5;
+        self.minut = 14;
+        self.sekund = 4;
+        self.ms = false;
+
+        var mobiDate = new Date(2014,10,18,9,0,0,0),
+        //var mobiDate = new Date(2014,10,8,23,0,0,0),
+        //var mobiDate = new Date(5*60*1000+35*1000+567),
+            mobiMillis = mobiDate.getTime();
+
+        self.toProperDate = function(millis) {
+            var ret = {dni:0,godzin:0,minut:0,sekund:0};
+
+            ret.godzin = millis % (24*60*60*1000);
+            ret.dni = Math.floor(millis / (24*60*60*1000));
+            ret.minut = ret.godzin % (60*60*1000);
+            ret.godzin = Math.floor(ret.godzin / (60*60*1000));
+            ret.sekund = ret.minut % (60*1000);
+            ret.minut = Math.round(ret.minut / (60*1000));
+            ret.sekund = Math.round(ret.sekund / 1000);
+
+            /*
+            ret.dni = millis % (24*60*60*1000);
+            millis = millis - ret.dni * (24*60*60*1000);
+            ret.godzin = millis % (60*60*1000);
+            millis = millis - ret.godzin * (60*60*1000);
+            ret.minut = millis % (60*1000);
+            millis = millis - ret.minut * (60*1000);
+            ret.sekund = millis % (1000);
+            */
+
+            return ret;
+        }
+
+        var pInterval = setInterval(function(){
+            var dt = new Date();
+            var tzo = dt.getTimezoneOffset();
+            var to = /*mobiMillis - */(dt.getTime() - tzo * 60 *1000);
+            //console.log(to, to/(24*60*60*1000))
+            //console.log((24*60*60*1000))
+            //to = 36*60*60*1000;
+            if (0 < to) {
+                var p = self.toProperDate(to);
+                self.dni = p.dni;
+                self.godzin = p.godzin;
+                self.minut = p.minut;
+                self.sekund = p.sekund;
+                self.ms = !(self.ms);
+
+                $scope.$apply();
+            } else {
+                clearInterval(pInterval);
+            }
+        },500);
+    });
+})(window,jQuery,angular);
+</script>
+
+<div ng-controller="mobi14Ctrl as mobil">
+    <h1>Mobilizacja 2014</h1>
+    <p>
+        Od początku JavaScriptu upłynęło:
+    </p>
+    <div>
+        <code>
+        {
+            dni : {{mobil.dni | _.str : 'pad':[2,'0']}},
+            godz : {{mobil.godzin | _.str : 'pad':[2,'0']}},
+            min : {{mobil.minut | _.str : 'pad':[2,'0']}},
+            sek : {{mobil.sekund | _.str : 'pad':[2,'0']}},
+            ms : "{{mobil.ms ? '---' : '###'}}"
+        }
+        </code>
+    </div>
+</div>

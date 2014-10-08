@@ -3,7 +3,16 @@
   window.DI = new function(){
     var self = this;
     var actions = [];
-    var app = angular.module('appRoot',[])
+    var app = angular.module('appRoot',[]);
+
+    app.filter('_.str', function() {
+      return function(str, fn, params){
+        str = str || '';
+        params = params || [];
+        params.unshift(str);
+        return fn ? _.str[fn].apply(this, params) : str;
+      }
+    })
 
     self.registerAction = function(action) {
       if ('function' !== typeof(action))

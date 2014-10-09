@@ -7,7 +7,8 @@
 
 @fontSize: 13px;
 @fontSizeBigger: 24px;
-@mainColor: #3f51b5;
+//@mainColor: #3f51b5; // indigo
+@mainColor: #ff5722; // deep orange
 @marginSides: 72px;
 @revColor: white;
 @revColorHighlight: wheat;
@@ -56,10 +57,15 @@ img {
 a {
     color: @mainColor;
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+.ptr {
+    cursor: pointer;
 }
 
 header {
@@ -91,6 +97,10 @@ header {
 .content {
     //padding: 20px @marginSides @footerHeight @marginSides;
     padding: 0 @marginSides;
+}
+
+.content a {
+    font-style: italic;
 }
 
 .footer {

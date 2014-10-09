@@ -1,6 +1,6 @@
 <script type="text/javascript">
 (function(window,$,angular){
-    DI.registerController('mobi14Ctrl', function($scope){
+    DI.registerController('mobi14Ctrl', ['$scope',function($scope){
         var self = this;
         self.dni = 15;
         self.godzin = 5;
@@ -57,7 +57,7 @@
                 clearInterval(pInterval);
             }
         },500);
-    });
+    }]);
 })(window,jQuery,angular);
 </script>
 

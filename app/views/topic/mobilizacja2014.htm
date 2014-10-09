@@ -1,6 +1,6 @@
 <script type="text/javascript">
 (function(window,$,angular){
-    DI.registerController('mobi14Ctrl', ['$scope',function($scope){
+    DI.registerController('mobi14Ctrl', ['$scope','$interval',function($scope, $interval){
         var self = this;
         self.dni = 0;
         self.godzin = 0;
@@ -38,12 +38,21 @@
                 self.sekund = p.sekund;
                 self.ms = !(self.ms);
 
-                $scope.$applyAsync();
+                //$scope.$applyAsync();
             }
             return 0 >= to;
         }
 
-        $scope.$applyAsync(function() {
+        ivMethod();
+
+        var pInterval = $interval(function(){
+            if (ivMethod()){
+                isStillValid = false;
+                $interval.cancel(pInterval);
+            }
+        })
+
+        /*$scope.$applyAsync(function() {
             ivMethod();
 
             var pInterval = setInterval(function(){
@@ -52,7 +61,7 @@
                     clearInterval(pInterval);
                 }
             },500);
-        });
+        });*/
     }]);
 })(window,jQuery,angular);
 </script>

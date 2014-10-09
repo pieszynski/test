@@ -37,8 +37,6 @@
                 self.minut = p.minut;
                 self.sekund = p.sekund;
                 self.ms = !(self.ms);
-
-                //$scope.$applyAsync();
             }
             return 0 >= to;
         }
@@ -50,18 +48,7 @@
                 isStillValid = false;
                 $interval.cancel(pInterval);
             }
-        })
-
-        /*$scope.$applyAsync(function() {
-            ivMethod();
-
-            var pInterval = setInterval(function(){
-                if (ivMethod()) {
-                    isStillValid = false;
-                    clearInterval(pInterval);
-                }
-            },500);
-        });*/
+        }, 500);
     }]);
 })(window,jQuery,angular);
 </script>

@@ -2,15 +2,14 @@
 (function(window,$,angular){
     DI.registerController('mobi14Ctrl', ['$scope',function($scope){
         var self = this;
-        self.dni = 15;
-        self.godzin = 5;
-        self.minut = 14;
-        self.sekund = 4;
+        self.dni = 0;
+        self.godzin = 0;
+        self.minut = 0;
+        self.sekund = 0;
         self.ms = false;
+        self.isStillValid = false;
 
-        var mobiDate = new Date(2014,10,18,9,0,0,0),
-        //var mobiDate = new Date(2014,10,8,23,0,0,0),
-        //var mobiDate = new Date(5*60*1000+35*1000+567),
+        var mobiDate = new Date(2014,9,18,9,0,0,0),
             mobiMillis = mobiDate.getTime();
 
         self.toProperDate = function(millis) {
@@ -24,27 +23,14 @@
             ret.minut = Math.round(ret.minut / (60*1000));
             ret.sekund = Math.round(ret.sekund / 1000);
 
-            /*
-            ret.dni = millis % (24*60*60*1000);
-            millis = millis - ret.dni * (24*60*60*1000);
-            ret.godzin = millis % (60*60*1000);
-            millis = millis - ret.godzin * (60*60*1000);
-            ret.minut = millis % (60*1000);
-            millis = millis - ret.minut * (60*1000);
-            ret.sekund = millis % (1000);
-            */
-
             return ret;
         }
 
-        var pInterval = setInterval(function(){
+        var ivMethod = function() {
             var dt = new Date();
-            var tzo = dt.getTimezoneOffset();
-            var to = /*mobiMillis - */(dt.getTime() - tzo * 60 *1000);
-            //console.log(to, to/(24*60*60*1000))
-            //console.log((24*60*60*1000))
-            //to = 36*60*60*1000;
+            to = mobiMillis - dt.getTime();
             if (0 < to) {
+                self.isStillValid = true;
                 var p = self.toProperDate(to);
                 self.dni = p.dni;
                 self.godzin = p.godzin;
@@ -52,11 +38,21 @@
                 self.sekund = p.sekund;
                 self.ms = !(self.ms);
 
-                $scope.$apply();
-            } else {
-                clearInterval(pInterval);
+                $scope.$applyAsync();
             }
-        },500);
+            return 0 >= to;
+        }
+
+        $scope.$applyAsync(function() {
+            ivMethod();
+
+            var pInterval = setInterval(function(){
+                if (ivMethod()) {
+                    isStillValid = false;
+                    clearInterval(pInterval);
+                }
+            },500);
+        });
     }]);
 })(window,jQuery,angular);
 </script>
@@ -64,9 +60,10 @@
 <div ng-controller="mobi14Ctrl as mobil">
     <h1>Mobilizacja 2014</h1>
     <p>
-        Od początku JavaScriptu upłynęło:
+        Konferencja <a href="http://www.mobilization.pl/" target="_blank">Mobilization</a>, która niewiadomo z jakiego powodu nie nazywa się po polsku "Mobilizacja" (że niby po angielsku to ładniej), odbędzie się jak w poprzednim roku w hali Międzynarodowych Targów Łódzkich znajdującej się przy al. Politechniki 4 w dniu 18.X.2014.
     </p>
-    <div>
+    <div ng-show="mobil.isStillValid">
+        <span>Do konferencji pozostało: </span>
         <code>
         {
             dni : {{mobil.dni | _.str : 'pad':[2,'0']}},
@@ -77,4 +74,65 @@
         }
         </code>
     </div>
+    <p>
+        Program będzie realizowany w kilku ścieżkach prezentowanych przez różne firmy i tak mamy:
+    </p>
+    <p>
+        <h4>Samsung</h4>
+        <ol>
+            <li>Tizen ecosystem</li>
+            <li>Testy bezpieczeństwa aplikacji mobilnych na przykładach</li>
+            <li>From Connected Cars to Highly Automated Vehicles</li>
+            <li>Apps and Mental Models</li>
+            <li>Universal Image Loader: Story, Architecture, FAQ</li>
+            <li>Projektowanie aplikacji iOS - wzorce i triki które każdy programista wiedzieć powinien.</li>
+            <li>Wprowadzenie do Augmented Reality dla laików i dla developerów</li>
+        </ol>
+    </p>
+    <p>
+        <h4>ABB</h4>
+        <ol>
+            <li>Ionic Framework, czyli jak podbić smartfony i tablety z pomocą JavaScriptu</li>
+            <li>Jak pisać mniej kodu?</li>
+            <li>World of beacon enabled apps</li>
+            <li>Tools and Techniques that help maintain a high quality code base</li>
+            <li>Tuningując Xcode</li>
+            <li>Reverse Engineering in iOS</li>
+            <li>Web Components - Polimer ale nie tylko</li>
+        </ol>
+    </p>
+    <p>
+        <h4>Ericpol</h4>
+        <ol>
+            <li>Usługi dla aplikacji mobilnych</li>
+            <li>Współpraca projektanta i programisty - jak pogodzić dwa światy</li>
+            <li>Tworzenie labolatoriów testowych na dużą skalę</li>
+            <li>LIKE '%smth%' is not the way to go</li>
+            <li>Wielki projekt i wielka firma</li>
+            <li>Mirror - szybki development UI dla Androida</li>
+        </ol>
+    </p>
+    <p>
+        <h4>Mobica</h4>
+        <ol>
+            <li>New features introduced in OpenGL ES 3.1.</li>
+            <li>Android Wear</li>
+            <li>Android Wear od rozpozanawiania mowy do własnych cyferblatów.</li>
+            <li>Boiling out Boilerplate</li>
+            <li>Szybkie programowanie gier w Qt Quick</li>
+            <li>Quo vadis programisto? – rynek, kariera, osobista marka.</li>
+            <li>E-papier w technologiach mobilnych</li>
+        </ol>
+    </p>
+    <p>
+        <h4>Transition Technologies</h4>
+        <ol>
+            <li>SkyNet is coming, welcome to Intenet of Things era.</li>
+            <li>Cztery podstawy projektowania oprogramowania</li>
+            <li>Rzeczy których nauczyłem sie pracując nad hybrydowymi aplikacjami</li>
+            <li>Android do usług, czyli ultralekkie serwisy na urządzeniach mobilnych</li>
+            <li>Prosty serwer z Push Notifications dla aplikacji mobilnych bez umiejętności programowania po stronie serwera</li>
+            <li>Płacisz nadal kartą lub gotówką, czy już telefonem?</li>
+        </ol>
+    </p>
 </div>

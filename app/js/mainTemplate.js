@@ -1,3 +1,4 @@
+// Moduł DI
 (function(window, angular){
 
   window.DI = new function(){
@@ -21,8 +22,12 @@
       actions.push(action);
     };
 
-    self.registerController = function(name, ctrlDef){
+    self.registerController = function(name, ctrlDef) {
       app.controller(name, ctrlDef);
+    }
+
+    self.registerDirective = function(name, dirDef) {
+      app.directive(name, dirDef);
     }
 
     self.invokeAll = function(){
@@ -34,6 +39,7 @@
 
 })(window,angular);
 
+// Główny kontroler strony
 (function(window, $, angular){
   DI.registerController('rootCtrl', function(){
     var self = this,
@@ -57,3 +63,28 @@
   });
 
 })(window,jQuery,angular);
+
+// dyrektywa pokazywania zapytania po kliknięciu
+(function($) {
+  DI.registerDirective('quizRemember', function(){
+    return {
+      restrict : 'E',
+      scope : {},
+      transclude : true,
+      controller : ['$scope', function($scope){
+        $scope.remember = '';
+        $scope.help = '[Nie pamiętam]';
+        $scope.doShow = false;
+        $scope.showResponse = function(){
+          $scope.doShow = true;
+        }
+      }],
+      link: function(scope, element, attrs) {
+        scope.remember = attrs.remember;
+        if (attrs.help)
+          scope.help = attrs.help;
+      },
+      template : '<span><span ng-transclude></span> <a ng-hide="doShow" ng-click="showResponse()">{{help}}</a><span ng-show="doShow">{{remember}}</span></span>'
+    }
+  });
+})(jQuery);

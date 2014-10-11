@@ -1,22 +1,17 @@
 
 <script type="text/javascript">
-    DI.registerController('potopCtrl', function(){
-        var self = this;
-        //DI.root.setPageTitleOnce('Niesamowite! To jest strona główna');
-
-        self.p1 = "tomu 2, rozdział XI";
-        self.toggleState = false;
-        self.toggleShow = function(){
-            self.toggleState = !self.toggleState;
-        }
-    });
 </script>
 
-<div ng-controller="potopCtrl as potop">
+<div>
     <h1>Potop</h1>
     <h2>Henryk Sienkiewicz</h2>
     <p>
-        <div>Poniższy tekst to wycinek z <a ng-click="potop.toggleShow()" ng-hide="potop.toggleState">Jak naprawdę nie pamiętasz to kliknij</a><span ng-show="potop.toggleState">{{potop.p1}}</span></div>
+        <div><quiz-remember
+                remember="tomu 2, rozdział XI"
+                help="Jak naprawdę nie pamiętasz to kliknij">
+                    Poniższy tekst to wycinek z
+            </quiz-remember>
+        </div>
         Słowa panny starościanki sochaczewskiej wielką napełniły pana Kmicica otuchą i przez trzy dni nie wychodziły mu z głowy. W dzień na koniu, w nocy na łożu rozmyślał o tym, co się przytrafiło, i zawsze dochodził do wniosku, że nie mógł to być prosty przypadek, ale prędzej wskazówka boża i przepowiednia, że jeśli wytrwa, jeśli z dobrej drogi nie zejdzie, z tej właśnie, którą mu Oleńka ukazała, to dziewczyna mu wiary dochowa i dawnym afektem obdarzy. <br/>
         Bo jeśli starościanka - rozmyślał pan Kmicic - dochowuje obserwancji swojemu Andrzejowi, który dotąd poprawy nie zaczął, to i dla mnie, mającego szczerą intencję służenia ojczyźnie, cnocie i królowi, nie zagasła jeszcze nadzieja!" <br/>
         Lecz z drugiej strony nie brakło panu Andrzejowi i umartwień. Intencję szczerą miał, ale czy nie za późno się z nią wybrał? Czy jeszcze była jakakolwiek droga, jakakolwiek sposobność? Rzeczpospolita z każdym dniem zdawała się być więcej pogrążoną i trudno było zamykać oczu na straszliwą prawdę, że nie masz dla niej ratunku. Niczego sobie więcej nie życzył Kmicic, jak poczynać jakowąś robotę, lecz ludzi chętnych nie widział. Coraz nowe postacie, coraz nowe twarze przewijały się przed nim w czasie podróży, ale ich widok, słuchanie ich rozmów i dyskusyj odbierało tylko resztę nadziei. <br/>

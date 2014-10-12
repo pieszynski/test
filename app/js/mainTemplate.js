@@ -99,3 +99,22 @@
     }
   });
 })(jQuery);
+
+(function(){
+  DI.registerDirective('imageInfo', function(){
+    return {
+      restrict:'E',
+      scope: {},
+      transclude: false,
+      controller: function($scope){
+        $scope.src = '';
+        $scope.info = '';
+      },
+      link: function(scope, element, attrs){
+        scope.src = attrs.src || '';
+        scope.info = attrs.info || '';
+      },
+      template: '<div class="imageInfo"><div><img class="fit block" src="{{src}}" alt="{{info}}" /></div><div class="imageDescription">{{info}}</div></div>'
+    }
+  });
+})();

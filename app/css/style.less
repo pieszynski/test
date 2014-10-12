@@ -134,6 +134,13 @@ header {
             padding: 10px @marginSides;
         }
     }
+    a {
+        color: @revColor;
+        &:hover {
+            color: @revColorHighlight;
+            text-decoration: none;
+        }
+    }
 }
 
 div.half-container {
@@ -190,6 +197,7 @@ div.half-container {
 }
 
 .imageInfo {
+    width: 100%;
     .imageDescription {
         background-color: @previewColor;
         padding: @stdPad;

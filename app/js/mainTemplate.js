@@ -64,6 +64,17 @@
 
 })(window,jQuery,angular);
 
+// dyrektywa daty powstania/edycji artykułu
+(function(){
+  DI.registerDirective('topDate', function(){
+    return {
+      restrict : 'E',
+      transclude : true,
+      template : '<div class="top-date" ng-transclude></div>'
+    }
+  });
+})();
+
 // dyrektywa pokazywania zapytania po kliknięciu
 (function($) {
   DI.registerDirective('quizRemember', function(){

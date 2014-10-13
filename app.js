@@ -1,13 +1,14 @@
 
 var viewsPath = __dirname + '/app/views/';
 
-var compression = require('compression')
+var compression = require('compression');
 var express = require('express');
 var router = express.Router();
 var htmlViewsClass = require('./htmlViews');
 
 htmlViews = new htmlViewsClass(viewsPath, 'mainTemplate').init();
 
+var appPort = 4080;
 var app = module.exports = express();
 
 app.set('views', viewsPath);
@@ -38,8 +39,13 @@ function defaultRouteAction(req,res,next) {
     res.render(htmlViews.getMainTemplateName(), req.site);
 }
 
-router.get('/:topic', defaultRouteAction);
+function noRouteAction(req,res,next) {
+    res.render(htmlViews.getMainTemplateName(), { topic : null });
+}
+
+router.get('/temat/:topic', defaultRouteAction);
 router.get('/', defaultRouteAction);
+router.get(/.*/i, noRouteAction);
 
 app.get('/favicon.ico', function(req,res){
     res.status(404).end();
@@ -48,6 +54,6 @@ app.get('/favicon.ico', function(req,res){
 app.get(/.*/i, router);
 app.get('/', router);
 
-app.listen(4080, function() {
-    console.log('Server running at http://*:4080/');
+app.listen(appPort, function() {
+    console.log('Server running at http://*:' + appPort);
 });

@@ -1,5 +1,8 @@
 
 var fs = require('fs');
+var analytics = require('./analytics');
+
+analytics.init()
 
 var app = function(_viewsPath, _mainTemplate, _errorTemplate) {
     this.options = {
@@ -45,9 +48,13 @@ app.prototype = function() {
                 if (err) throw new Error(err);
 
                 // pobranie pełnej ścieżki do pliku tematu
+                var sTopic = options.topic;
                 var tFile = getTopicFile(options.topic);
                 // jeśli nie udało się pobrać ścieżki to zwracamy komunikat błedu
-                tFile = tFile || self.options.errorPath;
+                if (!tFile) {
+                    sTopic = self.options.error;
+                    tFile = self.options.errorPath;
+                }
 
                 // weryfikacja istnienia pliku tematu
                 fs.exists(tFile, function(exists) {
@@ -55,6 +62,11 @@ app.prototype = function() {
                         // zmiana na plik z informacją o błędzie 404
                         tFile = self.options.errorPath;
                     }
+
+                    // zwiększenie licznika odwiedzin dla konkretnego widoku
+                    // nie będzie informacji na temat linków do stron nieistniejących
+                    // ale przez to nie pojawi się DOS z odwołaniami do losowych, nieistniejących, stron
+                    analytics.pageHit(exists ? sTopic : self.options.error);
 
                     // odczytanie pliku tematu lub wyświetlenie komunikaty błędu
                     fs.readFile(tFile, function(err, tContent){

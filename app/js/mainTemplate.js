@@ -107,14 +107,18 @@
       scope: {},
       transclude: false,
       controller: function($scope){
-        $scope.src = '';
+        $scope.imgSrc = '';
         $scope.info = '';
       },
       link: function(scope, element, attrs){
-        scope.src = attrs.src || '';
+        scope.imgSrc = attrs.src || '';
         scope.info = attrs.info || '';
+
+        // niestety nie można zostawić szablonu 'src="{{src}}"' bo przeglądarka
+        // zaczyna automatycznie pobierać obraz z adresu zawierającego niepodmieniony literał '{{src}}'
+        element.find('img').attr('src', scope.imgSrc);
       },
-      template: '<div class="imageInfo"><div><img class="fit block" src="{{src}}" alt="{{info}}" /></div><div class="imageDescription">{{info}}</div></div>'
+      template: '<div class="imageInfo"><div><img class="fit block" src="" alt="{{info}}" /></div><div class="imageDescription">{{info}}</div></div>'
     }
   });
 })();

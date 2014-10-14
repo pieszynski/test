@@ -2,8 +2,6 @@
 var fs = require('fs');
 var analytics = require('./analytics');
 
-analytics.init()
-
 var app = function(_viewsPath, _mainTemplate, _errorTemplate) {
     this.options = {
         mainTemplate: _mainTemplate,
@@ -12,22 +10,18 @@ var app = function(_viewsPath, _mainTemplate, _errorTemplate) {
         // domyślny szablon błędu nieistnienia jakiegoś obiektu
         error: _errorTemplate || 'error404',
         // pełna ścieżka do szablinu błędu 404
-        errorPath: undefined
+        errorPath: null
     };
+
+    this.options.errorPath = getTopicFile.call(this, this.options.error)
 };
 
 app.prototype = function() {
-    // wskaźnik THIS
-    var self = undefined,
         // element oznaczony tą wartością w szablonie zostanie podminiony
-        bodyTag = '%%%body%%%',
-        // funkcja testowa - sprawdzanie czy wszystko działa
-        test = function() {
-            console.log("htmlView pozdrawia");
-            return self;
-        },
+    var bodyTag = '%%%body%%%',
+        // zwraca nazwę szablonu głównego
         getMainTemplateName = function() {
-            return self.options.mainTemplate;
+            return this.options.mainTemplate;
         }
         // pobranie pełnej ścieżki do treści tematu
         getTopicFile = function(topic) {
@@ -36,37 +30,39 @@ app.prototype = function() {
 
             // temat może składać się tylko ze znaków alfanumerycznych oraz '-'
             if (/^[a-z0-9-]+$/i.test(topic))
-                return self.options.path + 'topic/' + topic.toLowerCase() + '.htm';
+                return this.options.path + 'topic/' + topic.toLowerCase() + '.htm';
 
             return null;
         },
         // główna metoda odpowiadająca za kompilację szablonów
         engine = function(filePath, options, callback) {
 
+            var _this = this;
             // odczytanie pliku szablonu - MUSI istnieć inaczej proces się wywróci
             fs.readFile(filePath, function(err, content){
                 if (err) throw new Error(err);
 
                 // pobranie pełnej ścieżki do pliku tematu
                 var sTopic = options.topic;
-                var tFile = getTopicFile(options.topic);
+
+                var tFile = getTopicFile.call(_this, options.topic);
                 // jeśli nie udało się pobrać ścieżki to zwracamy komunikat błedu
                 if (!tFile) {
-                    sTopic = self.options.error;
-                    tFile = self.options.errorPath;
+                    sTopic = _this.options.error;
+                    tFile = _this.options.errorPath;
                 }
 
                 // weryfikacja istnienia pliku tematu
                 fs.exists(tFile, function(exists) {
                     if (!exists){
                         // zmiana na plik z informacją o błędzie 404
-                        tFile = self.options.errorPath;
+                        tFile = _this.options.errorPath;
                     }
 
                     // zwiększenie licznika odwiedzin dla konkretnego widoku
                     // nie będzie informacji na temat linków do stron nieistniejących
                     // ale przez to nie pojawi się DOS z odwołaniami do losowych, nieistniejących, stron
-                    analytics.pageHit(exists ? sTopic : self.options.error);
+                    analytics.pageHit(exists ? sTopic : _this.options.error);
 
                     // odczytanie pliku tematu lub wyświetlenie komunikaty błędu
                     fs.readFile(tFile, function(err, tContent){
@@ -79,21 +75,17 @@ app.prototype = function() {
                 });
             });
         },
-        init = function(){
-            self = this;
-
-            // inicjalizacja ścieżki do szablonu z błędem 404
-            self.options.errorPath = getTopicFile(self.options.error);
-
-            return self;
+        getEngine = function() {
+            var _this = this;
+            return function(filePath, options, callback) {
+                return engine.call(_this, filePath, options, callback);
+            }
         };
 
     return {
-        __express: engine,
         engine: engine,
-        getMainTemplateName: getMainTemplateName,
-        init: init,
-        test: test
+        getEngine: getEngine,
+        getMainTemplateName: getMainTemplateName
     };
 }();
 

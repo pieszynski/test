@@ -5,13 +5,7 @@ var connectionString = 'mongodb://localhost:27017/test'
 var app = function(){};
 
 app.prototype = function() {
-    var self = undefined,
-        init = function() {
-            if (self)
-                return;
-            self = this;
-        },
-        pageHit = function(viewName) {
+    var pageHit = function(viewName) {
             MongoClient.connect(
                 connectionString,
                 {native_parser:true},
@@ -39,7 +33,6 @@ app.prototype = function() {
         };
 
     return {
-        init: init,
         pageHit: pageHit
     }
 }();

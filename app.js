@@ -6,7 +6,7 @@ var express = require('express');
 var router = express.Router();
 var htmlViewsClass = require('./htmlViews');
 
-htmlViews = new htmlViewsClass(viewsPath, 'mainTemplate').init();
+htmlViews = new htmlViewsClass(viewsPath, 'mainTemplate');
 
 var appPort = 4080;
 var app = module.exports = express();
@@ -14,7 +14,7 @@ var app = module.exports = express();
 app.set('views', viewsPath);
 app.set('view engine', 'htm');
 
-app.engine('htm', htmlViews.__express);
+app.engine('htm', htmlViews.getEngine());
 
 app.use(compression());
 
@@ -57,3 +57,8 @@ app.get('/', router);
 app.listen(appPort, function() {
     console.log('Server running at http://*:' + appPort);
 });
+
+
+for(var i in process.argv) {
+    console.log(i, process.argv[i]);
+}

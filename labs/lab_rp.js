@@ -31,7 +31,6 @@ var vClass = (function(){
 
 var p1 = new vClass("pp11");
 var p2 = new vClass("pp22");
-//p2.init();
 
 var fn = function() {
     var p = 23;
@@ -46,7 +45,7 @@ var fn2 = function(a) {
 // p2.init('moje!');
 //
 // bo wszystkim instancjom vClass zostanie ustawiony "this"("self") na ten z instancji "p2"
-//  co zaskutkuje zmianom zmiennych per klasa na te z "p2" i wynik poniższego bedzie wyglądał:
+//  co zaskutkuje zmianami zmiennych per klasa na te z "p2" i wynik poniższego bedzie wyglądał:
 //
 //      "p1.gett() { a: 'pp22', b: 'moje!' }"
 //      "p2.gett() { a: 'pp22', b: 'moje!' }"

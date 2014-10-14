@@ -1,7 +1,7 @@
 
 var MongoClient = require('mongodb').MongoClient;
 
-var connectionString = 'mongodb://localhost:27017/test'
+var connectionString = GLOBAL.appConfig.getDbConnection();
 var app = function(){};
 
 app.prototype = function() {

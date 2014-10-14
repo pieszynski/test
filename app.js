@@ -1,64 +1,77 @@
 
+// konfiguracja przekazywana jako drugi parametr wywołania np.:
+// > node app.js config.json
+//
+//  plik konfiguracyjny w formacie
+//  {
+//      "port" : 4080,
+//      "dbConnection" : "mongodb://localhost:27017/test"
+//  }
+//
+
 var viewsPath = __dirname + '/app/views/';
 
 var compression = require('compression');
 var express = require('express');
 var router = express.Router();
-var htmlViewsClass = require('./htmlViews');
 
-htmlViews = new htmlViewsClass(viewsPath, 'mainTemplate');
+GLOBAL.appConfig = require('./config');
 
-var appPort = 4080;
-var app = module.exports = express();
+var confCallback = function() {
 
-app.set('views', viewsPath);
-app.set('view engine', 'htm');
+    var htmlViewsClass = require('./htmlViews');
 
-app.engine('htm', htmlViews.getEngine());
+    htmlViews = new htmlViewsClass(viewsPath, 'mainTemplate');
 
-app.use(compression());
+    var appPort = GLOBAL.appConfig.getPort();
+    var app = module.exports = express();
 
-app.use(express.static(__dirname + '/app'));
-//app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist'));
-app.use('/angular', express.static(__dirname + '/bower_components/angular'));
-app.use('/jquery', express.static(__dirname + '/bower_components/jquery/dist'));
-app.use('/underscore', express.static(__dirname + '/bower_components/underscore'));
-app.use('/underscorestring', express.static(__dirname + '/bower_components/underscore.string/dist'));
+    app.set('views', viewsPath);
+    app.set('view engine', 'htm');
 
-router.param('topic', function(req, res, next, topic) {
-    req.site = req.site || {};
-    req.site.topic = topic;
+    app.engine('htm', htmlViews.getEngine());
 
-    next();
-});
+    app.use(compression());
 
-function defaultRouteAction(req,res,next) {
-    req.site = req.site || {};
-    req.site.topic = req.site.topic || 'home';
+    app.use(express.static(__dirname + '/app'));
+    //app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist'));
+    app.use('/angular', express.static(__dirname + '/bower_components/angular'));
+    app.use('/jquery', express.static(__dirname + '/bower_components/jquery/dist'));
+    app.use('/underscore', express.static(__dirname + '/bower_components/underscore'));
+    app.use('/underscorestring', express.static(__dirname + '/bower_components/underscore.string/dist'));
 
-    res.render(htmlViews.getMainTemplateName(), req.site);
-}
+    router.param('topic', function(req, res, next, topic) {
+        req.site = req.site || {};
+        req.site.topic = topic;
 
-function noRouteAction(req,res,next) {
-    res.render(htmlViews.getMainTemplateName(), { topic : null });
-}
+        next();
+    });
 
-router.get('/temat/:topic', defaultRouteAction);
-router.get('/', defaultRouteAction);
-router.get(/.*/i, noRouteAction);
+    function defaultRouteAction(req,res,next) {
+        req.site = req.site || {};
+        req.site.topic = req.site.topic || 'home';
 
-app.get('/favicon.ico', function(req,res){
-    res.status(404).end();
-})
+        res.render(htmlViews.getMainTemplateName(), req.site);
+    }
 
-app.get(/.*/i, router);
-app.get('/', router);
+    function noRouteAction(req,res,next) {
+        res.render(htmlViews.getMainTemplateName(), { topic : null });
+    }
 
-app.listen(appPort, function() {
-    console.log('Server running at http://*:' + appPort);
-});
+    router.get('/temat/:topic', defaultRouteAction);
+    router.get('/', defaultRouteAction);
+    router.get(/.*/i, noRouteAction);
 
+    app.get('/favicon.ico', function(req,res){
+        res.status(404).end();
+    })
 
-for(var i in process.argv) {
-    console.log(i, process.argv[i]);
-}
+    app.get(/.*/i, router);
+    app.get('/', router);
+
+    app.listen(appPort, function() {
+        console.log('Server running at http://*:' + appPort);
+    });
+};
+
+appConfig.init(confCallback);

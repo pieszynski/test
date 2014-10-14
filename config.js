@@ -10,7 +10,9 @@ app.prototype = function(){
             dbConnection: null
         },
         _isInited = false,
-        init = function(callback){
+        // asynchroniczne wczytanie konfiguracji.
+        //  po zakończeniu wywoływana jest metoda "callback"
+        init = function(callback, printCfg){
             if (_isInited) {
                 callback();
                 return;
@@ -42,6 +44,9 @@ app.prototype = function(){
                     try {
                         var oData = JSON.parse(data);
 
+                        if (printCfg)
+                            console.log('### cfg', oData);
+
                         options.port = oData.port || options.port;
                         options.dbConnection = oData.dbConnection || options.dbConnection;
 
@@ -53,9 +58,11 @@ app.prototype = function(){
                 });
             })
         },
+        // pobranie ścieżki połączeniowej do bazy danych
         getDbConnection = function() {
             return options.dbConnection;
         },
+        // pobranie portu na którym ma być uruchomiony serwer
         getPort = function() {
             return options.port;
         };

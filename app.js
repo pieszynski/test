@@ -74,4 +74,4 @@ var confCallback = function() {
     });
 };
 
-appConfig.init(confCallback);
+appConfig.init(confCallback, true);

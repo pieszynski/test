@@ -1,0 +1,116 @@
+
+<script type="text/javascript">
+(function() {
+    DI.registerController('szkieletCtrl', function() {
+        var self = this;
+
+        self.meToo = 'Ja też nie...'
+    });
+})();
+</script>
+<div ng-controller="szkieletCtrl as szkiel">
+    <h1>Lekcja anatomii - szkielet<top-date>15.X.2014</top-date></h1>
+    <p>
+        Aby przypomnieć i utrwalić sobie zagadnienia dotyczące anatomii a dokładniej listę kości z jakich składa się szkielet człowieka zamieszczam poniżej listę wypunktowaną odnoszącą się do nazw każdej z kości po łacinie. Aby dowiedzieć się jak ta kość się nazywa wystarczy kliknąć w link odpowiadający kości, której nazwę zapomnieliśmy i wtedy zamieni się on na właściwą nazwę kości.
+    </p>
+    <p>
+        Podpowiedź: na dole obrazka znajduje się lista nazwa kości w języku angielskim - jest to pewnego rodzaju ułatwienie.
+    </p>
+    <p>
+        <code>//DO ROZSZERZENIA//</code> - fajnie byłoby aby po najechaniu na link "[Nie pamiętam]" albo na numerek na obrazku podświetlało się to drugie bo czasami ciężko jest namierzyć daną kość gdyż numeracja wydaje się, na pierwszy rzut oka, pomieszana. Pytanie tylko jak to się zgra z automatycznym skalowaniem obrazka oraz podglądem na smartfonach.
+    </p>
+    <h4>Niestety jeszcze nie wszystkie nazwy kości zostały uzupełnione. Tam gdzie to jeszcze nie zostało zrobione pojawi się napis "{{szkiel.meToo}}" lub pole będzie ukryte żeby nie zaciemniać obrazu. Brakujące pozycje powinny być przeze mnie regularnie dodawane w miarę wolnego czasu.</h4>
+    <div>
+        <div class="half-container">
+            <div class="quater-width">
+                <ol class="no-bullet nopad">
+                    <li>1. <quiz-remember remember="Os frontale"></quiz-remember></li>
+                    <!-- <li>2. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>3. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>4. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>5. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>6. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>7. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>8. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>9. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>10. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>11. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>12. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li>13. <quiz-remember remember="Mandibula"></quiz-remember></li>
+                    <!-- <li>14. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>15. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>16. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>17. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>18. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>19. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>20. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>21. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>22. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>23. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>24. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li>25. <quiz-remember remember="Os sacrum"></quiz-remember></li>
+                    <!-- <li>26. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>27. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li>28. <quiz-remember remember="Corpus sterni"></quiz-remember></li>
+                    <!-- <li>29. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>30. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>31. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>32. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>33. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>34. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>35. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li>36. <quiz-remember remember="Clavicula"></quiz-remember></li>
+                    <li>37. <quiz-remember remember="Scapula"></quiz-remember></li>
+                    <!-- <li>38. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>39. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li>40. <quiz-remember remember="Humerus"></quiz-remember></li>
+                    <!-- <li>41. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li>42. <quiz-remember remember="Ulna"></quiz-remember></li>
+                    <!-- <li>43. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li>44. <quiz-remember remember="Radius"></quiz-remember></li>
+                    <li>45. <quiz-remember remember="Ossa carpalia"></quiz-remember></li>
+                    <li>46. <quiz-remember remember="Ossa metacarpalia"></quiz-remember></li>
+                    <!-- <li>47. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>48. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>49. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>50. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>51. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>52. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>53. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>54. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>55. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li>56. <quiz-remember remember="Femur"></quiz-remember></li>
+                    <!-- <li>57. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>58. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>59. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>60. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li>61. <quiz-remember remember="Patella"></quiz-remember></li>
+                    <li>62. <quiz-remember remember="Fibula"></quiz-remember></li>
+                    <li>63. <quiz-remember remember="Tibia"></quiz-remember></li>
+                    <!-- <li>64. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>65. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>66. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>67. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li>68. <quiz-remember remember="Phalanges"></quiz-remember></li>
+                    <!-- <li>69. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>70. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>71. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>72. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
+                    <li>73. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                </ol>
+            </div>
+            <div class="three-quaters-width">
+                <image-info
+                    info="Szkielet ludzki ze słownika z 1906r. [1]"
+                    src="/img/topic/anatomia/humanBones.jpg">
+                    </image-info>
+            </div>
+        </div>
+    </div>
+    <h3>Informacje o obrazku</h3>
+    <p>
+        <ul class="no-bullet nopad">
+            <li>[1] - http://olddesignshop.com/2014/08/bones-dictionary-page-and-clip-art-free-graphics/</li>
+        </ul>
+    </p>
+</div>

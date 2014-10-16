@@ -5,27 +5,42 @@
         var self = this;
 
         self.meToo = 'Ja też nie...'
+        self.hCube = {
+            top : '6%',
+            left : '23%',
+            display : 'none'
+        };
         self.questions = [
-            { num: 1, remember: 'Os frontale' },
-            { num: 13, remember: "Mandibula" },
-            { num: 25, remember: "Os sacrum" },
-            { num: 28, remember: "Corpus sterni" },
-            { num: 36, remember: "Clavicula" },
-            { num: 37, remember: "Scapula" },
-            { num: 40, remember: "Humerus" },
-            { num: 42, remember: "Ulna" },
-            { num: 44, remember: "Radius" },
-            { num: 45, remember: "Ossa carpalia" },
-            { num: 46, remember: "Ossa metacarpalia" },
-            { num: 56, remember: "Femur" },
-            { num: 61, remember: "Patella" },
-            { num: 62, remember: "Fibula" },
-            { num: 63, remember: "Tibia" },
-            { num: 68, remember: "Phalanges" }
+            { num: 1, remember: "Os frontale", top: '1.5%', left: '16%' },
+            { num: 13, remember: "Mandibula", top: '9%', left: '16%' },
+            { num: 25, remember: "Os sacrum", top: '37%', left: '42%' },
+            { num: 28, remember: "Corpus sterni", top: '23%', left: '9%' },
+            { num: 36, remember: "Clavicula", top: '13.5%', left: '36%' },
+            { num: 37, remember: "Scapula", top: '20%', left: '57%' },
+            { num: 40, remember: "Humerus", top: '25%', left: '9%' },
+            { num: 42, remember: "Ulna", top: '33%', left: '6%' },
+            { num: 44, remember: "Radius", top: '37%', left: '2%' },
+            { num: 45, remember: "Ossa carpalia", top: '39%', left: '0%' },
+            { num: 46, remember: "Ossa metacarpalia", top: '44.5%', left: '7%' },
+            { num: 56, remember: "Femur", top: '57.5%', left: '84%' },
+            { num: 61, remember: "Patella", top: '58.5%', left: '39%' },
+            { num: 62, remember: "Fibula", top: '69%', left: '41%' },
+            { num: 63, remember: "Tibia", top: '65%', left: '41%' },
+            { num: 68, remember: "Phalanges", top: '78%', left: '45%' }
         ];
 
         self.over = function(ques, isOver) {
-            //console.log('ovr', arguments);
+            if (!isOver) {
+                self.hCube.display = 'none';
+                return;
+            }
+
+            if (ques && ques.top && ques.left) {
+                self.hCube.top = ques.top;
+                self.hCube.left = ques.left;
+            }
+
+            self.hCube.display = 'block';
         }
     });
 })();
@@ -39,9 +54,10 @@
         Podpowiedź: na dole obrazka znajduje się lista nazwa kości w języku angielskim - jest to pewnego rodzaju ułatwienie.
     </p>
     <p>
-        <code>//DO ROZSZERZENIA//</code> - fajnie byłoby aby po najechaniu na link "[Nie pamiętam]" albo na numerek na obrazku podświetlało się to drugie bo czasami ciężko jest namierzyć daną kość gdyż numeracja wydaje się, na pierwszy rzut oka, pomieszana. Pytanie tylko jak to się zgra z automatycznym skalowaniem obrazka oraz podglądem na smartfonach.
+        <code>//DO ROZSZERZENIA//</code> - fajnie byłoby aby po najechaniu na link "[Nie pamiętam]" albo na numerek na obrazku podświetlało się to drugie bo czasami ciężko jest namierzyć daną kość gdyż numeracja wydaje się, na pierwszy rzut oka, pomieszana(<code>//Połowicznie już działa - tylko najechanie na pytanie podświetla numerek na obrazku</code>). Pytanie tylko jak to się zgra z automatycznym skalowaniem obrazka oraz podglądem na smartfonach.
     </p>
     <h4>Niestety jeszcze nie wszystkie nazwy kości zostały uzupełnione. Tam gdzie to jeszcze nie zostało zrobione pojawi się napis "{{szkiel.meToo}}" lub pole będzie ukryte żeby nie zaciemniać obrazu. Brakujące pozycje powinny być przeze mnie regularnie dodawane w miarę wolnego czasu.</h4>
+
     <div>
         <div class="half-container">
             <div class="quater-width">
@@ -56,10 +72,18 @@
                 </ol>
             </div>
             <div class="three-quaters-width">
-                <image-info
+                <!-- <image-info
                     info="Szkielet ludzki ze słownika z 1906r. [1]"
                     src="/img/topic/anatomia/humanBones.jpg">
-                    </image-info>
+                    </image-info> -->
+
+                <div class="imageInfo">
+                    <div style="position:relative">
+                        <img class="fit block" src="/img/topic/anatomia/humanBones.jpg" alt="Szkielet ludzki ze słownika z 1906r. [1]" />
+                        <div style="width:3%;height:2%;background-color:rgba(255,255,0,0.5);position:absolute;" ng-style="szkiel.hCube"></div>
+                    </div>
+                    <div class="imageDescription">Szkielet ludzki ze słownika z 1906r. [1]</div>
+                </div>
             </div>
         </div>
     </div>

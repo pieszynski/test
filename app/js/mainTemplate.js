@@ -77,10 +77,26 @@
 
 // dyrektywa pokazywania zapytania po kliknięciu
 (function($) {
+
+// użycie:
+//  <quiz-remember
+//      remember="tekst dodany po kliknięciu"
+//      help="tekst ukrywający, dostępny do kliknięcia"
+//      help-click="funkcja do wykonania po kliknięciu w link pomocy np. 'hello.clk()'"
+//      m-over="akcja wykonywana na najechanie na całą kontrolkę"
+//      m-leave="akcja wykonywana gdy mysz przestanie się znajdować nad kontrolką">
+//  "Treść początkowa do której będzie doklejone na końcu pole 'help'e"
+//  </quiz-remember>
+
   DI.registerDirective('quizRemember', function(){
     return {
       restrict : 'E',
-      scope : {},
+      scope : {
+        //clickAction : "=qrClick",
+        helpClick : '&', // tożsame z '&helpClick' bo atrybut nazywa się tak samo jak klucz
+        mouseOver : '&mOver',
+        mouseLeave : '&mLeave'
+      },
       transclude : true,
       controller : ['$scope', function($scope){
         $scope.remember = '';
@@ -88,14 +104,17 @@
         $scope.doShow = false;
         $scope.showResponse = function(){
           $scope.doShow = true;
+
+          $scope.helpClick();
         }
+
       }],
       link: function(scope, element, attrs) {
         scope.remember = attrs.remember;
         if (attrs.help)
           scope.help = attrs.help;
       },
-      template : '<span><span ng-transclude></span> <a ng-hide="doShow" ng-click="showResponse()">{{help}}</a><span ng-show="doShow">{{remember}}</span></span>'
+      template : '<span ng-mouseover="mouseOver()" ng-mouseleave="mouseLeave()"><span ng-transclude></span> <a ng-hide="doShow" ng-click="showResponse()">{{help}}</a><span ng-show="doShow">{{remember}}</span></span>'
     }
   });
 })(jQuery);

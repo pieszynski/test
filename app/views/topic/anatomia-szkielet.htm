@@ -5,6 +5,28 @@
         var self = this;
 
         self.meToo = 'Ja też nie...'
+        self.questions = [
+            { num: 1, remember: 'Os frontale' },
+            { num: 13, remember: "Mandibula" },
+            { num: 25, remember: "Os sacrum" },
+            { num: 28, remember: "Corpus sterni" },
+            { num: 36, remember: "Clavicula" },
+            { num: 37, remember: "Scapula" },
+            { num: 40, remember: "Humerus" },
+            { num: 42, remember: "Ulna" },
+            { num: 44, remember: "Radius" },
+            { num: 45, remember: "Ossa carpalia" },
+            { num: 46, remember: "Ossa metacarpalia" },
+            { num: 56, remember: "Femur" },
+            { num: 61, remember: "Patella" },
+            { num: 62, remember: "Fibula" },
+            { num: 63, remember: "Tibia" },
+            { num: 68, remember: "Phalanges" }
+        ];
+
+        self.over = function(ques, isOver) {
+            //console.log('ovr', arguments);
+        }
     });
 })();
 </script>
@@ -24,79 +46,13 @@
         <div class="half-container">
             <div class="quater-width">
                 <ol class="no-bullet nopad">
-                    <li>1. <quiz-remember remember="Os frontale"></quiz-remember></li>
-                    <!-- <li>2. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>3. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>4. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>5. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>6. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>7. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>8. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>9. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>10. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>11. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>12. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
-                    <li>13. <quiz-remember remember="Mandibula"></quiz-remember></li>
-                    <!-- <li>14. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>15. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>16. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>17. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>18. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>19. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>20. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>21. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>22. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>23. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>24. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
-                    <li>25. <quiz-remember remember="Os sacrum"></quiz-remember></li>
-                    <!-- <li>26. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>27. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
-                    <li>28. <quiz-remember remember="Corpus sterni"></quiz-remember></li>
-                    <!-- <li>29. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>30. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>31. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>32. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>33. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>34. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>35. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
-                    <li>36. <quiz-remember remember="Clavicula"></quiz-remember></li>
-                    <li>37. <quiz-remember remember="Scapula"></quiz-remember></li>
-                    <!-- <li>38. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>39. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
-                    <li>40. <quiz-remember remember="Humerus"></quiz-remember></li>
-                    <!-- <li>41. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
-                    <li>42. <quiz-remember remember="Ulna"></quiz-remember></li>
-                    <!-- <li>43. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
-                    <li>44. <quiz-remember remember="Radius"></quiz-remember></li>
-                    <li>45. <quiz-remember remember="Ossa carpalia"></quiz-remember></li>
-                    <li>46. <quiz-remember remember="Ossa metacarpalia"></quiz-remember></li>
-                    <!-- <li>47. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>48. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>49. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>50. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>51. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>52. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>53. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>54. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>55. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
-                    <li>56. <quiz-remember remember="Femur"></quiz-remember></li>
-                    <!-- <li>57. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>58. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>59. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>60. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
-                    <li>61. <quiz-remember remember="Patella"></quiz-remember></li>
-                    <li>62. <quiz-remember remember="Fibula"></quiz-remember></li>
-                    <li>63. <quiz-remember remember="Tibia"></quiz-remember></li>
-                    <!-- <li>64. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>65. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>66. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>67. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
-                    <li>68. <quiz-remember remember="Phalanges"></quiz-remember></li>
-                    <!-- <li>69. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>70. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>71. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>72. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li>
-                    <li>73. <quiz-remember remember="{{szkiel.meToo}}"></quiz-remember></li> -->
+                    <li ng-repeat="ques in szkiel.questions">
+                        {{ques.num}}.
+                        <quiz-remember remember="{{ques.remember}}"
+                            m-over="szkiel.over(ques, true)"
+                            m-leave="szkiel.over(ques, false)">
+                        </quiz-remember>
+                    </li>
                 </ol>
             </div>
             <div class="three-quaters-width">

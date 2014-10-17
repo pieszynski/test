@@ -7,6 +7,7 @@ app.prototype = function(){
     var options = {
             configFile: null,
             port: 4080,
+            logRequest: true,
             dbConnection: null
         },
         _isInited = false,
@@ -48,6 +49,7 @@ app.prototype = function(){
                             console.log('### cfg', oData);
 
                         options.port = oData.port || options.port;
+                        options.logRequest = oData.logRequest !== undefined ? oData.logRequest : options.logRequest;
                         options.dbConnection = oData.dbConnection || options.dbConnection;
 
                     } catch (ex) {
@@ -58,6 +60,9 @@ app.prototype = function(){
                 });
             })
         },
+        doLogRequests = function() {
+            return options.logRequest;
+        }
         // pobranie ścieżki połączeniowej do bazy danych
         getDbConnection = function() {
             return options.dbConnection;
@@ -68,6 +73,7 @@ app.prototype = function(){
         };
 
     return {
+        doLogRequests : doLogRequests,
         getDbConnection : getDbConnection,
         getPort : getPort,
         init : init

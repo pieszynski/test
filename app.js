@@ -20,6 +20,7 @@ GLOBAL.appConfig = require('./config');
 var confCallback = function() {
 
     var htmlViewsClass = require('./htmlViews');
+    GLOBAL.analytics = require('./analytics');
 
     htmlViews = new htmlViewsClass(viewsPath, 'mainTemplate');
 
@@ -40,6 +41,14 @@ var confCallback = function() {
     app.use('/underscore', express.static(__dirname + '/bower_components/underscore'));
     app.use('/underscorestring', express.static(__dirname + '/bower_components/underscore.string/dist'));
 
+    if (GLOBAL.appConfig.doLogRequests()) {
+        app.use(/.*/i, function(req,res,next) {
+            console.log(GLOBAL.analytics.logRequest(req));
+
+            next();
+        });
+    }
+
     router.param('topic', function(req, res, next, topic) {
         req.site = req.site || {};
         req.site.topic = topic;
@@ -50,12 +59,13 @@ var confCallback = function() {
     function defaultRouteAction(req,res,next) {
         req.site = req.site || {};
         req.site.topic = req.site.topic || 'home';
+        req.site.info = { req : req, res : res };
 
         res.render(htmlViews.getMainTemplateName(), req.site);
     }
 
     function noRouteAction(req,res,next) {
-        res.render(htmlViews.getMainTemplateName(), { topic : null });
+        res.render(htmlViews.getMainTemplateName(), { topic : null, info : { req : req, res : res } });
     }
 
     router.get('/temat/:topic', defaultRouteAction);

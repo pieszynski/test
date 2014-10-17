@@ -1,6 +1,5 @@
 
 var fs = require('fs');
-var analytics = require('./analytics');
 
 var app = function(_viewsPath, _mainTemplate, _errorTemplate) {
     this.options = {
@@ -50,6 +49,7 @@ app.prototype = function() {
                 if (!tFile) {
                     sTopic = _this.options.error;
                     tFile = _this.options.errorPath;
+                    options.info.res.status(404);
                 }
 
                 // weryfikacja istnienia pliku tematu
@@ -59,10 +59,13 @@ app.prototype = function() {
                         tFile = _this.options.errorPath;
                     }
 
+                    if (!exists || sTopic === _this.options.error)
+                        options.info.res.status(404);
+
                     // zwiększenie licznika odwiedzin dla konkretnego widoku
                     // nie będzie informacji na temat linków do stron nieistniejących
                     // ale przez to nie pojawi się DOS z odwołaniami do losowych, nieistniejących, stron
-                    analytics.pageHit(exists ? sTopic : _this.options.error);
+                    GLOBAL.analytics.pageHit(exists ? sTopic : _this.options.error);
 
                     // odczytanie pliku tematu lub wyświetlenie komunikaty błędu
                     fs.readFile(tFile, function(err, tContent){

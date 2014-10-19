@@ -68,6 +68,14 @@ var confCallback = function() {
         res.render(htmlViews.getMainTemplateName(), { topic : null, info : { req : req, res : res } });
     }
 
+    router.post('/ping', function(req,res,next) {
+        res.set({
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        });
+        res.send({ title : 'ping', time : (new Date()).getTime() });
+    });
+
     router.get('/temat/:topic', defaultRouteAction);
     router.get('/', defaultRouteAction);
     router.get(/.*/i, noRouteAction);
@@ -76,8 +84,8 @@ var confCallback = function() {
         res.status(404).end();
     })
 
-    app.get(/.*/i, router);
-    app.get('/', router);
+    app.all(/.*/i, router);
+    app.all('/', router);
 
     app.listen(appPort, function() {
         console.log('Server running at http://*:' + appPort);

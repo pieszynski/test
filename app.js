@@ -83,10 +83,6 @@ var confCallback = function() {
     router.get('/', defaultRouteAction);
     router.get(/.*/i, noRouteAction);
 
-    app.get('/favicon.ico', function(req,res){
-        res.status(404).end();
-    })
-
     app.all(/.*/i, router);
     app.all('/', router);
 

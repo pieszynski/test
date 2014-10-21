@@ -44,7 +44,9 @@ var confCallback = function() {
 
     if (GLOBAL.appConfig.doLogRequests()) {
         app.use(/.*/i, function(req,res,next) {
-            console.log(GLOBAL.analytics.logRequest(req));
+            GLOBAL.analytics.logRequest(req,res,function(data) {
+                console.log(data);
+            });
 
             next();
         });

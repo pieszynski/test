@@ -28,19 +28,33 @@ app.prototype = function() {
 
             return dateColumn;
         }
-        logRequest = function(req) {
+        logRequest = function(req,res,callback) {
+            var rEnd = res.end;
             var response = _nowDate();
             var now = new Date();
+            var t0 = process.hrtime();
 
-            response += " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-            response += " " + req.connection.remoteAddress;
-            response += " " + req.hostname;
-            response += " " + req.baseUrl;
-            response += " " + req.method;
-            response += " \"" + req.headers.referer + "\"";
-            response += " " + req.headers['user-agent'];
+            // podmieniamy metodę .end() aby przechwycić wynik działania
+            res.end = function(){
+                res.end = rEnd;
+                rEnd.apply(this, arguments);
+                var t = process.hrtime(t0);
+                var nsecs = t[0] * 1e9 + t[1];
+                var msecs = nsecs / 1e6;
 
-            return response;
+                response += " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+                response += " " + req.connection.remoteAddress;
+                response += " " + req.hostname;
+                response += " " + req.method;
+                response += " " + res.statusCode;
+                response += " perf::" + msecs + "ms";
+                response += " ba::" + req.baseUrl;
+                response += " or::" + req.originalUrl;
+                response += " ref::\"" + req.headers.referer + "\"";
+                response += " ua::" + req.headers['user-agent'];
+
+                callback(response);
+            }
         },
         pageHit = function(viewName) {
             _execute.call(this, function(db, callback) {

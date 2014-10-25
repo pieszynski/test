@@ -21,9 +21,11 @@ GLOBAL.appConfig = require('./config');
 var confCallback = function() {
 
     var htmlViewsClass = require('./htmlViews');
+    var ControllersClass = require('./controllers');
     GLOBAL.analytics = require('./analytics');
 
-    htmlViews = new htmlViewsClass(viewsPath, 'mainTemplate');
+    var htmlViews = new htmlViewsClass(viewsPath, 'mainTemplate');
+    var controllers = new ControllersClass();
 
     var appPort = GLOBAL.appConfig.getPort();
     var app = module.exports = express();
@@ -71,13 +73,8 @@ var confCallback = function() {
         res.render(htmlViews.getMainTemplateName(), { topic : null, info : { req : req, res : res } });
     }
 
-    router.post('/ping', function(req,res,next) {
-        res.set({
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        });
-        res.send({ title : 'ping', time : (new Date()).getTime() });
-    });
+    // rejestracja kontrolerów zewnętrznych
+    controllers.register(router);
 
     router.get('/temat/:topic', defaultRouteAction);
     router.get('/', defaultRouteAction);

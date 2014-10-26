@@ -215,6 +215,15 @@ div.half-container {
     }
 }
 
+.stdPadChild > * {
+    @media (max-width:@mediaQueryPhone) {
+        margin-top: @stdPad;
+    }
+    @media (min-width:@mediaQueryPhone) {
+        margin-left: @stdPad;
+    }
+}
+
 .videoPad {
     position: relative;
     iframe {
@@ -226,11 +235,15 @@ div.half-container {
     }
 }
 
+.headerInfo {
+    background-color: @previewColor;
+    padding: @stdPad;
+}
+
 .imageInfo {
     width: 100%;
     .imageDescription {
-        background-color: @previewColor;
-        padding: @stdPad;
+        .headerInfo();
     }
 }
 

@@ -23,7 +23,7 @@ app.prototype = function () {
                 res.send({
                     content : [
                         {
-                            de : 'hersetellen',
+                            de : 'herstellen',
                             pl : 'produkować'
                         },
                         {

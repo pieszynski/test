@@ -23,6 +23,26 @@ app.prototype = function () {
                 res.send({
                     content : [
                         {
+                            de : 'rühren',
+                            pl : 'mieszać'
+                        },
+                        {
+                            de : '(da)zugegen',
+                            pl : 'dodawać'
+                        },
+                        {
+                            de : 'übrigens',
+                            pl : 'przy okazji, a propos'
+                        },
+                        {
+                            de : 'lecker',
+                            pl : 'pyszny'
+                        },
+                        {
+                            de : 'e Kirsche,-n',
+                            pl : 'wiśnia'
+                        },
+                        {
                             de : 'herstellen',
                             pl : 'produkować'
                         },

@@ -23,6 +23,18 @@ app.prototype = function () {
                 res.send({
                     content : [
                         {
+                            de : 'verteidigen',
+                            pl : 'bronić'
+                        },
+                        {
+                            de : 'entsetzt',
+                            pl : 'przerażony'
+                        },
+                        {
+                            de : 'tippen',
+                            pl : 'pisać, puknąć'
+                        },
+                        {
                             de : 'rühren',
                             pl : 'mieszać'
                         },

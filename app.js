@@ -21,7 +21,7 @@ GLOBAL.appConfig = require('./config');
 var confCallback = function() {
 
     var htmlViewsClass = require('./htmlViews');
-    var ControllersClass = require('./controllers');
+    var ControllersClass = require('./controllers/controllers');
     GLOBAL.analytics = require('./analytics');
 
     var htmlViews = new htmlViewsClass(viewsPath, 'mainTemplate');

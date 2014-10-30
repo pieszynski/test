@@ -32,7 +32,9 @@ app.prototype = function () {
                         },
                         {
                             de : 'tippen',
-                            pl : 'pisać, puknąć'
+                            pl : 'pisać, puknąć',
+                            des: 'Punkąłem go w ramię.',
+                            pls: 'Ich habe ihn an die Schulter getippt.'
                         },
                         {
                             de : 'rühren',

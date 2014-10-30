@@ -1,5 +1,5 @@
 
-var MongoClient = require('mongodb').MongoClient;
+//var MongoClient = require('mongodb').MongoClient;
 
 var connectionString = GLOBAL.appConfig.getDbConnection();
 var app = function(){};
@@ -57,6 +57,7 @@ app.prototype = function() {
             }
         },
         pageHit = function(viewName) {
+            /*
             _execute.call(this, function(db, callback) {
 
                 db.collection('analytics').update(
@@ -65,6 +66,7 @@ app.prototype = function() {
                     { upsert : true },
                     callback);
             });
+            */
         };
 
     return {

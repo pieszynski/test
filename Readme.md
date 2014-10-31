@@ -8,7 +8,10 @@
 * Buforowanie głównego szablonu strony
 * Rozbudowa o system powiadomień w przeglądarce - ćwiczenie pamięci
 * Słówka (pl, de, zdanie pl, zdanie de) z niemieckiego - do ćwiczeń
+* youtube_dl ;D
 * Stworzenie automatycznego skryptu odtwarzającego wszystko na maszynie za raz po tym jak została na świeżo zainstalowana (instalacja wymaganych zależności apt-get, przygotowanie katalogów, skryptów startowych, rejestracja startowa, przygotowanie bazy, etc) - wszystko za pomocą jednego polecenia
+* Przeniesienie pomocnych kawałków kodu z Dropboxa i sql_hints na stronę
+* Zindeksowanie repozytorium linków, pobranie ich zawartości + wyciągnięcie esencji.
 * Dynamiczna budowa kodu - Wyrażenia lambda i Expression.* + Emit
 * Wtyczka do NodeJS - C++11
 * MonoCecil

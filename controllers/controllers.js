@@ -24,7 +24,7 @@ app.prototype = function () {
                     content : [
                         {
                             de : 'verteidigen',
-                            pl : 'bronić'
+                            pl : 'bronić',
                             des: 'Die Magisterarbeit wird verteidigt.',
                             pls: 'Praca magisterska została obroniona.'
                         },

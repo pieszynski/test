@@ -25,10 +25,14 @@ app.prototype = function () {
                         {
                             de : 'verteidigen',
                             pl : 'bronić'
+                            des: 'Die Magisterarbeit wird verteidigt.',
+                            pls: 'Praca magisterska została obroniona.'
                         },
                         {
                             de : 'entsetzt',
-                            pl : 'przerażony'
+                            pl : 'przerażony',
+                            des: 'Meine Schwester ist entsetzt.',
+                            pls: 'Moja siostra jest przerażona.'
                         },
                         {
                             de : 'tippen',
@@ -38,7 +42,9 @@ app.prototype = function () {
                         },
                         {
                             de : 'rühren',
-                            pl : 'mieszać'
+                            pl : 'mieszać',
+                            des: 'Deine Mutter rührt den Teig.',
+                            pls: 'Twoja mama miesza ciasto.'
                         },
                         {
                             de : '(da)zugegen',

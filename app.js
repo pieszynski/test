@@ -35,6 +35,8 @@ var confCallback = function() {
 
     app.engine('htm', htmlViews.getEngine());
 
+    app.disable('x-powered-by');
+
     app.use(compression());
 
     app.use(express.static(__dirname + '/app'));

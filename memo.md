@@ -1,4 +1,17 @@
 
+## Historia
+
+#### Marek Terencjusz Warron (II-I w. p.n.e.)
+1. Gramatyka - pisanie czytanie
+2. Dialektyka - logiczne myślenie i wysławianie się
+3. Retoryka - wysławianie się w sposób piękny
+4. Arytmetyka
+5. Geometria
+6. Astronomia
+7. Muzyka
+8. Architektura - zbudować dom i fortyfikacje
+9. Medycyna - umiejętność pomocy sobie i innym
+
 ## AngularJS
 
 #### $http.post(url, {}) != $http.post(url)

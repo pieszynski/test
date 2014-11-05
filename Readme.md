@@ -3,7 +3,6 @@
 ##DoRealizacji:
 
 * Uzupełnienie wszystkich kości szkieletu osiowego i dodatkowego
-* Użycie HighlightJs
 * Fikołek - przy starcie systemu NodeJs nie widzi globalnych pakietów (nawet po uruchomieniu pliku /etc/profile.d/node.sh) co uniemożliwia automatyczny start serwera przy starcie maszyny
 * Wprowadzenie rejestracji kontrolerów na stronie
 * Buforowanie głównego szablonu strony

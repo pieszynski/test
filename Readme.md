@@ -1,6 +1,8 @@
-##Repozytorium kodu dla strony jak z linku na górze.
+Test
+======
+Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:4080/).
 
-##DoRealizacji:
+####Do dodania:
 
 * Przygotowanie strony z GIT+SSH (aktualnie tylko Ghist)
 * Uzupełnienie wszystkich kości szkieletu osiowego i dodatkowego

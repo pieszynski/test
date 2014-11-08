@@ -3,6 +3,8 @@
 ##DoRealizacji:
 
 * Uzupełnienie wszystkich kości szkieletu osiowego i dodatkowego
+* Konfiguracja strony głównej na podstawie home.json
+* RSS (na podstawie pages.json)
 * Grunci = Grunt + CI ( [typescript_grunt_task](https://github.com/ribose/dev-grunt-build) )
 * Fikołek - przy starcie systemu NodeJs nie widzi globalnych pakietów (nawet po uruchomieniu pliku /etc/profile.d/node.sh) co uniemożliwia automatyczny start serwera przy starcie maszyny
 * Wprowadzenie rejestracji kontrolerów na stronie

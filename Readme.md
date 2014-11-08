@@ -2,6 +2,7 @@
 
 ##DoRealizacji:
 
+* Przygotowanie strony z GIT+SSH (aktualnie tylko Ghist)
 * Uzupełnienie wszystkich kości szkieletu osiowego i dodatkowego
 * Konfiguracja strony głównej na podstawie home.json
 * RSS (na podstawie pages.json)

@@ -3,6 +3,8 @@
 
 <div>
     <h1>TypeScript - szybki start<top-date>05.XI.2014</top-date></h1>
+
+
     <h3>Dlaczego TypeScript?</h3>
     <p>
         Siłą JavaScriptu polega na tym, że jest on dynamiczny i niczym nie ograniczony. Można za pomocą jednej linii zrealizować funkjonalności, których realizacja w C# byłaby dość uciążliwa.
@@ -25,6 +27,8 @@
     <p>
         To nie wszystko. Dostajemy również dziedziczenie klas, którego standardowo w JavaScript nie ma i trzeba troszkę się namęczyć i uważać na pomyłki lub literówki przy tworzeniu kodu niepotrzebnie generując szablonowe kawałki kodu. Tu TypeScipt błyszczy (przykłady poniżej - wersja kodu sprzed kompilacji jest dużo bardziej czytelna i nie zawiera zbędnych "śmieci", które zaciemniają zrozumienie kodu - co nie oznacza, że są niepotrzebne).
     </p>
+
+
     <h3>TypeScript vs jQuery</h3>
     <p>
         Faktem jest, że na rynku istnieje wiele bibliotek JavaScript, które nie zostały stworzone przy użyciu TypeScript i nie posiadają silnie typowanych definicji swoich obiektów. Przykładami są właśnie jQuery czy AngularJs.
@@ -32,6 +36,74 @@
     <p>
         Tu z pomocą przychodzi projekt [2] rozwijany na GitHub-ie będący swojego rodzaju repozytorium definicji typów dla bibliotek, które ich w świadomy sposób nie tworzą.
     </p>
+
+
+    <h3>Modułowość</h3>
+    <p>
+        TypeScript w bardzo prosty sposób pozwala na tworzenie modułów, które łatwo jest potem użyć do innch celów. Poniższy przykład zobrazuje sytuację.
+    </p>
+    <pre><code class="hljs typescript">
+        // shapes.ts
+
+        module Shapes {
+            export class Polygon {
+                public x : number;
+                setX(_x : number) {
+                    this.x = _x;
+                }
+                public isSquare() {
+                    return false;
+                }
+            }
+        }
+    </code></pre>
+    <pre><code class="hljs typescript">
+        // main.ts
+
+        class Square extends Shapes.Polygon {
+            constructor(dim : number) {
+                super();
+                this.setX(dim);
+            }
+            public isSquare() {
+                return true;
+            }
+        }
+
+        var s : Shapes.Polygon = new Square(40);
+        console.log(s.x, s.isSquare());
+
+        // wynik: 40 true
+
+    </code></pre>
+    <p>
+        Kompilacja i uruchomienie testowe:
+    </p>
+    <pre><code class="hljs bash">
+        > tsc --out o.js shapes.ts main.ts &amp;&amp; node o.js
+        40 true
+    </code></pre>
+    <p>
+        Ważne jest jednak aby nie zamienić kolejności plików kompilowanych przez TypeScript bo dostaniemy komunikat jak poniżej. Kompilator TypeScript dołącza do pliku wynikowego kompilowane pliki w kolejności jakiej zostały przekazane do polecenia.
+    </p>
+    <pre><code class="hljs bash">
+        ...\o.js:17
+        })(Shapes.Polygon);
+                 ^
+        TypeError: Cannot read property 'Polygon' of undefined
+    </code></pre>
+    <p>
+        Jeśli jednak nie chcemy podawać na raz kilku plików możemy je referować do siebie wzajemnie umieszczając odpowiednią dyrektywę w komentarzu na początku pliku.
+    </p>
+    <pre><code class="hljs typescript">
+        /// &lt;reference path="./shapes.ts"/&gt;
+    </code></pre>
+    <pre><code class="hljs bash">
+        > tsc --out o.js main.ts &amp;&amp; node o.js
+        40 true
+    </code></pre>
+
+
     <h3>Podsumowując (bo poniżej są już tylko przykłady użycia)</h3>
     <p>
         Według mnie wydaje się niemądrym niekorzystanie z dobrodziejstwa TypeScript. W szczególności gdy można sobie do np SublimeText napisać poniższe zadanie, które skompiluje kod TypeScript do samego JavaScriptu i uruchomi go w NodeJs aby można było od razu zobaczyć wyniki swojej pracy.
@@ -44,6 +116,7 @@
             "shell": true
         }
     </code></pre>
+
 
     <h3>Instalacja</h3>
     <p>

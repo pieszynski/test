@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>@pieszynski.com</title>
+        <link>http://www.pieszynski.com/</link>
+        <description>Co nowego na stronie pieszynski.com</description>
+
+        <item>
+            <title>TypeScript - szybki start</title>
+            <description>TypeScript - szybki start</description>
+            <pubDate>05.XI.2014</pubDate>
+            <link>http://www.pieszynski.com/temat/typescript-szybki-start</link>
+        </item>
+        <item>
+            <title>Animacje za pomocą CSS</title>
+            <description>Animacje za pomocą CSS</description>
+            <pubDate>25.X.2014</pubDate>
+            <link>http://www.pieszynski.com/temat/animacje-css</link>
+        </item>
+        <item>
+            <title>Apache Cordova - konfiguracja środowiska</title>
+            <description>Apache Cordova - konfiguracja środowiska</description>
+            <pubDate>18.X.2014</pubDate>
+            <link>http://www.pieszynski.com/temat/apache-cordova-start</link>
+        </item>
+        <item>
+            <title>Lekcja anatomii - szkielet</title>
+            <description>Lekcja anatomii - szkielet</description>
+            <pubDate>15.X.2014</pubDate>
+            <link>http://www.pieszynski.com/temat/anatomia-szkielet</link>
+        </item>
+        <item>
+            <title>Festiwal świateł - Łódź 2014</title>
+            <description>Festiwal świateł - Łódź 2014</description>
+            <pubDate>12.X.2014</pubDate>
+            <link>http://www.pieszynski.com/temat/festiwal-swiatel-lodz-2014</link>
+        </item>
+        <item>
+            <title>Potop - Henryk Sienkiewicz</title>
+            <description>Potop - Henryk Sienkiewicz</description>
+            <pubDate>09.X.2014</pubDate>
+            <link>http://www.pieszynski.com/temat/potop</link>
+        </item>
+        <item>
+            <title>Mobilizacja 2014</title>
+            <description>Mobilizacja 2014</description>
+            <pubDate>09.X.2014</pubDate>
+            <link>http://www.pieszynski.com/temat/mobilizacja2014</link>
+        </item>
+    </channel>
+</rss>

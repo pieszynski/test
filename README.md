@@ -4,10 +4,14 @@ Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:408
 
 ####Do dodania:
 
+* Problemy wydajnościowe ExpressJs.Static ...
 * Przygotowanie strony z GIT+SSH (aktualnie tylko Ghist)
 * Uzupełnienie wszystkich kości szkieletu osiowego i dodatkowego
-* Konfiguracja strony głównej na podstawie home.json
+* Konfiguracja strony głównej na podstawie (select top x * from pages.json)
 * RSS (na podstawie pages.json)
+    * pubDate must be an RFC-822 date-time: -- <pubDate>Wed, 02 Oct 2002 15:00:00 +0200</pubDate>
+    * item should contain a guid element
+    * insert a atom:link to your feed in the channel section
 * [Grunci](https://github.com/pieszynski/grunci) = Grunt + CI ( [typescript_grunt_task](https://github.com/ribose/dev-grunt-build) )
 * Fikołek - przy starcie systemu NodeJs nie widzi globalnych pakietów (nawet po uruchomieniu pliku /etc/profile.d/node.sh) co uniemożliwia automatyczny start serwera przy starcie maszyny
 * Wprowadzenie rejestracji kontrolerów na stronie

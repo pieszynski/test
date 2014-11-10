@@ -11,49 +11,49 @@
             <description>TypeScript - szybki start</description>
             <pubDate>Wed, 05 Nov 2014 00:00:00 +0100</pubDate>
             <link>http://www.pieszynski.com/temat/typescript-szybki-start</link>
-            <guid>0007</guid>
+            <guid>http://www.pieszynski.com/temat/typescript-szybki-start</guid>
         </item>
         <item>
             <title>Animacje za pomocą CSS</title>
             <description>Animacje za pomocą CSS</description>
-            <pubDate>Thu, 25 Oct 2014 00:00:00 +0100</pubDate>
+            <pubDate>Sat, 25 Oct 2014 00:00:00 +0100</pubDate>
             <link>http://www.pieszynski.com/temat/animacje-css</link>
             <guid>0006</guid>
         </item>
         <item>
             <title>Apache Cordova - konfiguracja środowiska</title>
             <description>Apache Cordova - konfiguracja środowiska</description>
-            <pubDate>Thu, 18 Oct 2014 00:00:00 +0100</pubDate>
+            <pubDate>Sat, 18 Oct 2014 00:00:00 +0100</pubDate>
             <link>http://www.pieszynski.com/temat/apache-cordova-start</link>
-            <guid>0005</guid>
+            <guid>http://www.pieszynski.com/temat/apache-cordova-start</guid>
         </item>
         <item>
             <title>Lekcja anatomii - szkielet</title>
             <description>Lekcja anatomii - szkielet</description>
-            <pubDate>Mon, 15 Oct 2014 00:00:00 +0100</pubDate>
+            <pubDate>Wed, 15 Oct 2014 00:00:00 +0100</pubDate>
             <link>http://www.pieszynski.com/temat/anatomia-szkielet</link>
-            <guid>0004</guid>
+            <guid>http://www.pieszynski.com/temat/anatomia-szkielet</guid>
         </item>
         <item>
             <title>Festiwal świateł - Łódź 2014</title>
             <description>Festiwal świateł - Łódź 2014</description>
-            <pubDate>Fri, 12 Oct 2014 00:00:00 +0100</pubDate>
+            <pubDate>Sun, 12 Oct 2014 00:00:00 +0100</pubDate>
             <link>http://www.pieszynski.com/temat/festiwal-swiatel-lodz-2014</link>
-            <guid>0003</guid>
+            <guid>http://www.pieszynski.com/temat/festiwal-swiatel-lodz-2014</guid>
         </item>
         <item>
             <title>Potop - Henryk Sienkiewicz</title>
             <description>Potop - Henryk Sienkiewicz</description>
-            <pubDate>Tue, 09 Oct 2014 01:00:00 +0100</pubDate>
+            <pubDate>Thu, 09 Oct 2014 01:00:00 +0100</pubDate>
             <link>http://www.pieszynski.com/temat/potop</link>
-            <guid>0002</guid>
+            <guid>http://www.pieszynski.com/temat/potop</guid>
         </item>
         <item>
             <title>Mobilizacja 2014</title>
             <description>Mobilizacja 2014</description>
-            <pubDate>Tue, 09 Oct 2014 00:00:00 +0100</pubDate>
+            <pubDate>Thu, 09 Oct 2014 00:00:00 +0100</pubDate>
             <link>http://www.pieszynski.com/temat/mobilizacja2014</link>
-            <guid>0001</guid>
+            <guid>http://www.pieszynski.com/temat/mobilizacja2014</guid>
         </item>
     </channel>
 </rss>

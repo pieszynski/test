@@ -12,9 +12,10 @@
 
 var viewsPath = __dirname + '/app/views/';
 
-var compression = require('compression');
-var express = require('express');
-var router = express.Router();
+var compression = require('compression'),
+    express = require('express'),
+    router = express.Router(),
+    serveStatic = require('serve-static');
 
 GLOBAL.appConfig = require('./config');
 
@@ -39,7 +40,8 @@ var confCallback = function() {
 
     app.use(compression());
 
-    app.use(express.static(__dirname + '/app'));
+    app.use(serveStatic('app'));
+
     //app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist'));
     app.use('/angular', express.static(__dirname + '/bower_components/angular'));
     app.use('/jquery', express.static(__dirname + '/bower_components/jquery/dist'));

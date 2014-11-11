@@ -20,8 +20,34 @@ app.prototype = function () {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
                 });
+                /*
+                        {
+                            de : '',
+                            pl : '',
+                            des: '',
+                            pls: ''
+                        }
+                */
                 res.send({
                     content : [
+                        {
+                            de : 'überfallen auf',
+                            pl : 'napadać na',
+                            des: 'Deutschland hat auf Polen überfallen.',
+                            pls: 'Niemcy napadły na Polskę.'
+                        },
+                        {
+                            de : 'mutig sein / Mut haben',
+                            pl : 'być odważnym / mieć odwagę',
+                            des: 'Ich habe Mut zu fragen.',
+                            pls: 'Mam odwagę pytać.'
+                        },
+                        {
+                            de : 'vergehen',
+                            pl : 'płynąć (czas)',
+                            des: 'Die Zeit vergeht zu schnell.',
+                            pls: 'Czas płynie zbyt szybko'
+                        },
                         {
                             de : 'verteidigen',
                             pl : 'bronić',

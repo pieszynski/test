@@ -38,7 +38,7 @@ module.exports = function(grunt) {
         uglify: {
             options: {
                 mangle: {
-                    except: ['jQuery', 'Backbone', 'angular', 'underscore', 'underscore.string']
+                    except: ['window','jQuery', 'Backbone', 'angular', 'underscore', 'underscore.string', 'DI']
                 }
             },
             production: {
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
                     'app/js/pack/angular.min.js',
                     'app/js/pack/underscore.min.js',
                     'app/js/pack/underscore.string.min.js',
-                    'app/js/mainTemplate.js'
+                    'app/js/pack/mainTemplate.min.js'
                 ],
                 dest : 'app/js/pack/mainTemplate.pack.min.js'
             }

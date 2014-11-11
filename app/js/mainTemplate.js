@@ -41,7 +41,7 @@
 
 // Główny kontroler strony
 (function(window, $, angular){
-  DI.registerController('rootCtrl', function(){
+  window.DI.registerController('rootCtrl', function(){
     var self = this,
         blockTitleUpdate = false;
 
@@ -55,7 +55,7 @@
       blockTitleUpdate = true;
     }
 
-    DI.root = function() {
+    window.DI.root = function() {
       return {
         setPageTitleOnce : self.setPageTitleOnce
       }
@@ -65,18 +65,18 @@
 })(window,jQuery,angular);
 
 // dyrektywa daty powstania/edycji artykułu
-(function(){
-  DI.registerDirective('topDate', function(){
+(function(window){
+  window.DI.registerDirective('topDate', function(){
     return {
       restrict : 'E',
       transclude : true,
       template : '<div class="top-date" ng-transclude></div>'
     }
   });
-})();
+})(window);
 
 // dyrektywa pokazywania zapytania po kliknięciu
-(function($) {
+(function(window, $) {
 
 // użycie:
 //  <quiz-remember
@@ -88,7 +88,7 @@
 //  "Treść początkowa do której będzie doklejone na końcu pole 'help'e"
 //  </quiz-remember>
 
-  DI.registerDirective('quizRemember', function(){
+  window.DI.registerDirective('quizRemember', function(){
     return {
       restrict : 'E',
       scope : {
@@ -117,18 +117,18 @@
       template : '<span ng-mouseover="mouseOver()" ng-mouseleave="mouseLeave()"><span ng-transclude></span> <a ng-hide="doShow" ng-click="showResponse()">{{help}}</a><span ng-show="doShow">{{remember}}</span></span>'
     }
   });
-})(jQuery);
+})(window, jQuery);
 
-(function(){
-  DI.registerDirective('imageInfo', function(){
+(function(window){
+  window.DI.registerDirective('imageInfo', function(){
     return {
       restrict:'E',
       scope: {},
       transclude: false,
-      controller: function($scope){
+      controller: ['$scope', function($scope){
         $scope.imgSrc = '';
         $scope.info = '';
-      },
+      }],
       link: function(scope, element, attrs){
         scope.imgSrc = attrs.src || '';
         scope.info = attrs.info || '';
@@ -140,4 +140,4 @@
       template: '<div class="imageInfo"><div><img class="fit block" src="" alt="{{info}}" /></div><div class="imageDescription">{{info}}</div></div>'
     }
   });
-})();
+})(window);

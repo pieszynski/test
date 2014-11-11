@@ -1,6 +1,6 @@
 {
     "templatePath" : "/app/views/topic/home.template.htm",
-    "feedPath" : "/app/testfeed.rss",
+    "feedPath" : "/app/feed.rss",
     "outPath" : "/app/views/topic/home.htm",
     "link" : "http://www.pieszynski.com",
     "replace" : "%%%pagesIndex%%%",

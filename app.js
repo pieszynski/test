@@ -55,7 +55,7 @@ var confCallback = function() {
 
     logAllRequests(GLOBAL.appConfig.doLogStatic());
 
-    app.use(serveStatic('app'));
+    app.use(serveStatic(__dirname + '/app'));
 
     logAllRequests(!(GLOBAL.appConfig.doLogStatic()));
 

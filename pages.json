@@ -1,0 +1,52 @@
+{
+    "templatePath" : "/app/views/topic/home.template.htm",
+    "feedPath" : "/app/testfeed.rss",
+    "outPath" : "/app/views/topic/home.htm",
+    "link" : "http://www.pieszynski.com",
+    "replace" : "%%%pagesIndex%%%",
+    "pagesRoute" : "/temat/",
+    "pages" : [
+        {
+            "name" : "typescript-szybki-start",
+            "title" : "TypeScript - szybki start",
+            "description" : "TypeScript - instajacja, pierwsze kroki, itp. Generalnie starter.",
+            "date" : "2014-11-05"
+        },
+        {
+            "name" : "animacje-css",
+            "title" : "Animacje za pomocą CSS",
+            "description" : "Animacje za pomocą CSS",
+            "date" : "2014-10-25"
+        },
+        {
+            "name" : "apache-cordova-start",
+            "title" : "Apache Cordova - konfiguracja środowiska",
+            "description" : "Apache Cordova - konfiguracja środowiska",
+            "date" : "2014-10-18"
+        },
+        {
+            "name" : "anatomia-szkielet",
+            "title" : "Lekcja anatomii - szkielet",
+            "description" : "Lekcja anatomii - szkielet",
+            "date" : "2014-10-15"
+        },
+        {
+            "name" : "festiwal-swiatel-lodz-2014",
+            "title" : "Festiwal świateł - Łódź 2014",
+            "description" : "Festiwal świateł - Łódź 2014",
+            "date" : "2014-10-12"
+        },
+        {
+            "name" : "potop",
+            "title" : "Potop - Henryk Sienkiewicz",
+            "description" : "Potop - Henryk Sienkiewicz",
+            "date" : "2014-10-09"
+        },
+        {
+            "name" : "mobilizacja2014",
+            "title" : "Mobilizacja 2014",
+            "description" : "Mobilizacja 2014",
+            "date" : "2014-10-09"
+        }
+    ]
+}

@@ -6,7 +6,8 @@
 //  {
 //      "port" : 4080,
 //      "dbConnection" : "mongodb://localhost:27017/test",
-//      "logRequest" : true
+//      "logRequest" : true,
+//      "logStatic" : true
 //  }
 //
 
@@ -31,6 +32,18 @@ var confCallback = function() {
     var appPort = GLOBAL.appConfig.getPort();
     var app = module.exports = express();
 
+    function logAllRequests(injectNow) {
+        if (GLOBAL.appConfig.doLogRequests() && injectNow) {
+            app.use(/.*/i, function(req,res,next) {
+                GLOBAL.analytics.logRequest(req,res,function(data) {
+                    console.log(data);
+                });
+
+                next();
+            });
+        }
+    }
+
     app.set('views', viewsPath);
     app.set('view engine', 'htm');
 
@@ -40,6 +53,8 @@ var confCallback = function() {
 
     app.use(compression());
 
+    logAllRequests(GLOBAL.appConfig.doLogStatic());
+
     app.use(serveStatic('app'));
 
     //app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist'));
@@ -48,15 +63,7 @@ var confCallback = function() {
     app.use('/underscore', express.static(__dirname + '/bower_components/underscore'));
     app.use('/underscorestring', express.static(__dirname + '/bower_components/underscore.string/dist'));
 
-    if (GLOBAL.appConfig.doLogRequests()) {
-        app.use(/.*/i, function(req,res,next) {
-            GLOBAL.analytics.logRequest(req,res,function(data) {
-                console.log(data);
-            });
-
-            next();
-        });
-    }
+    logAllRequests(!(GLOBAL.appConfig.doLogStatic()));
 
     router.param('topic', function(req, res, next, topic) {
         req.site = req.site || {};

@@ -50,6 +50,7 @@ app.prototype = function(){
 
                         options.port = oData.port || options.port;
                         options.logRequest = oData.logRequest !== undefined ? oData.logRequest : options.logRequest;
+                        options.logStatic = oData.logStatic === true;
                         options.dbConnection = oData.dbConnection || options.dbConnection;
 
                     } catch (ex) {
@@ -62,6 +63,10 @@ app.prototype = function(){
         },
         doLogRequests = function() {
             return options.logRequest;
+        },
+        // czy logować pobieranie plików statycznych
+        doLogStatic = function() {
+            return options.logStatic === true;
         }
         // pobranie ścieżki połączeniowej do bazy danych
         getDbConnection = function() {
@@ -74,6 +79,7 @@ app.prototype = function(){
 
     return {
         doLogRequests : doLogRequests,
+        doLogStatic : doLogStatic,
         getDbConnection : getDbConnection,
         getPort : getPort,
         init : init

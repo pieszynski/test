@@ -33,3 +33,6 @@ bower_components
 # Wygenerowany szablon strony głównej i kanału RSS
 app/views/topic/home.htm
 app/feed.rss
+
+# Ignorowanie paczki skryptów JavaScript
+app/js/pack

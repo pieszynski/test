@@ -57,12 +57,6 @@ var confCallback = function() {
 
     app.use(serveStatic('app'));
 
-    //app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist'));
-    //app.use('/angular', serveStatic('bower_components/angular'));
-    //app.use('/jquery', serveStatic('bower_components/jquery/dist'));
-    //app.use('/underscore', serveStatic('bower_components/underscore'));
-    //app.use('/underscorestring', serveStatic('bower_components/underscore.string/dist'));
-
     logAllRequests(!(GLOBAL.appConfig.doLogStatic()));
 
     router.param('topic', function(req, res, next, topic) {

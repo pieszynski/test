@@ -55,7 +55,7 @@ var confCallback = function() {
 
     logAllRequests(GLOBAL.appConfig.doLogStatic());
 
-    app.use(serveStatic(__dirname + '/app'));
+    app.use(serveStatic(__dirname + '/app', { maxAge : '7d' }));
 
     logAllRequests(!(GLOBAL.appConfig.doLogStatic()));
 

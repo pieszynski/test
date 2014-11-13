@@ -4,7 +4,6 @@ Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:408
 
 ####Do dodania:
 
-* Problemy wydajnościowe ExpressJs.Static ...
 * Przygotowanie strony z GIT+SSH (aktualnie tylko Ghist)
 * Uzupełnienie wszystkich kości szkieletu osiowego i dodatkowego
 * [Grunci](https://github.com/pieszynski/grunci) = Grunt + CI ( [typescript_grunt_task](https://github.com/ribose/dev-grunt-build) )
@@ -25,3 +24,4 @@ Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:408
 
 ####Zrobione
 * Strona główna i RSS na podstawie pages.json - zadanie GRUNT
+* Problemy wydajnościowe ExpressJs.Static - problem dysków na hostingu (branch "pstatic" potwierdza problemy z odczytem większych plików) :(

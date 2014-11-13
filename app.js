@@ -16,7 +16,8 @@ var viewsPath = __dirname + '/app/views/';
 var compression = require('compression'),
     express = require('express'),
     router = express.Router(),
-    serveStatic = require('serve-static');
+    serveStatic = require('serve-static'),
+    pstatic = require('./pstatic');
 
 GLOBAL.appConfig = require('./config');
 
@@ -55,7 +56,8 @@ var confCallback = function() {
 
     logAllRequests(GLOBAL.appConfig.doLogStatic());
 
-    app.use(serveStatic(__dirname + '/app', { maxAge : '7d' }));
+    //app.use(serveStatic(__dirname + '/app', { maxAge : '7d' }));
+    app.use(pstatic(__dirname + '/app'));
 
     logAllRequests(!(GLOBAL.appConfig.doLogStatic()));
 

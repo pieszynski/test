@@ -37,6 +37,7 @@ Użycie:
 #### Node sam wykrywa wycieki pamięci
 W tym wypadku słusznie
 
+```javascript
 (node) warning: possible EventEmitter memory leak detected. 11 listeners added.
 Use emitter.setMaxListeners() to increase limit.
 Trace
@@ -48,3 +49,4 @@ Trace
     at HTTPParser.parserOnHeadersComplete [as onHeadersComplete\] (http.js:121:23)
     at Socket.socket.ondata (http.js:1966:22)
     at TCP.onread (net.js:527:27)
+```

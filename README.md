@@ -24,4 +24,4 @@ Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:408
 
 ####Zrobione
 * Strona główna i RSS na podstawie pages.json - zadanie GRUNT
-* Problemy wydajnościowe ExpressJs.Static - problem dysków na hostingu (branch "pstatic" potwierdza problemy z odczytem większych plików) :(
+* Problemy wydajnościowe ExpressJs.Static - problem dysków albo kolejek/strumieni wyjściowych (kopiowanie pliów działa ok ale przy wysyłaniu większej ilości danych przez net proces się kończy a dane się jeszcze wysyłają) na hostingu (branch "pstatic" potwierdza problemy z odczytem większych plików) :(

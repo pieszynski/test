@@ -31,3 +31,20 @@ Pierwsze niestety wykonuje zapytanie za pomocą metody OPTIONS a dopiero to drug
 Użycie:
 
     <div class="toggle" it-render="hello.renderItem(_elem, item)">
+
+## NodeJs
+
+#### Node sam wykrywa wycieki pamięci
+W tym wypadku słusznie
+
+(node) warning: possible EventEmitter memory leak detected. 11 listeners added.
+Use emitter.setMaxListeners() to increase limit.
+Trace
+    at Stream.EventEmitter.addListener (events.js:160:15)
+    at Stream.pipe (stream.js:119:10)
+    at Server.<anonymous> (...\streamsFile\app.js:42:26)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete\] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:527:27)

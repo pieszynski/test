@@ -31,6 +31,12 @@ app.prototype = function () {
                 res.send({
                     content : [
                         {
+                            de : 'übertreiben',
+                            pl : 'przesadzać z czymś',
+                            des: 'Jan hat mit dem Essen übertrieben.',
+                            pls: 'Jan przesadził z jedzeniem.'
+                        },
+                        {
                             de : 'überfallen auf',
                             pl : 'napadać na',
                             des: 'Deutschland hat auf Polen überfallen.',

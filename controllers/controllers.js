@@ -37,6 +37,12 @@ app.prototype = function () {
                             pls: 'Jan przesadził z jedzeniem.'
                         },
                         {
+                            de : 'vereinigen',
+                            pl : 'łączyć',
+                            des: 'Deutschland hat sich wiedervereingit.',
+                            pls: 'Niemcy ponownie się połączyły.'
+                        },
+                        {
                             de : 'überfallen auf',
                             pl : 'napadać na',
                             des: 'Deutschland hat auf Polen überfallen.',

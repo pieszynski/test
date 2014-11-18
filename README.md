@@ -4,7 +4,7 @@ Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:408
 
 ####Do dodania:
 
-* Przygotowanie strony z GIT+SSH (aktualnie tylko Ghist)
+* Przygotowanie strony z GIT+SSH (aktualnie tylko Ghist) oraz operacje wykonywane za pomocą GITa za pomocą linii poleceń
 * Uzupełnienie wszystkich kości szkieletu osiowego i dodatkowego
 * [Grunci](https://github.com/pieszynski/grunci) = Grunt + CI ( [typescript_grunt_task](https://github.com/ribose/dev-grunt-build) )
 * Fikołek - przy starcie systemu NodeJs nie widzi globalnych pakietów (nawet po uruchomieniu pliku /etc/profile.d/node.sh) co uniemożliwia automatyczny start serwera przy starcie maszyny

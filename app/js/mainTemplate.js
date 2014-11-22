@@ -141,3 +141,17 @@
     }
   });
 })(window);
+
+(function(window) {
+  window.DI.registerDirective('nhref', function () {
+    return {
+      restrict: 'A',
+      scope: {},
+      transclude: false,
+      link: function (scope, element, attrs) {
+        var href = element.attr('nhref');
+        element.attr('rel', 'nofollow').attr('target','_blank').attr('href', href);
+      }
+    }
+  });
+})(window);

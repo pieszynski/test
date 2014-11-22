@@ -7,6 +7,12 @@
     "pagesRoute" : "/temat/",
     "pages" : [
         {
+            "name" : "git-poradnik",
+            "title" : "GIT poradnik",
+            "description" : "Szybki start z GIT. Podstawowe komendy i konfiguracja.",
+            "date" : "2014-11-22"
+        },
+        {
             "name" : "typescript-szybki-start",
             "title" : "TypeScript - szybki start",
             "description" : "TypeScript - instajacja, pierwsze kroki, itp. Generalnie starter.",

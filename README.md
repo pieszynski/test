@@ -25,3 +25,4 @@ Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:408
 ####Zrobione
 * Strona główna i RSS na podstawie pages.json - zadanie GRUNT
 * Problemy wydajnościowe ExpressJs.Static - problem dysków albo kolejek/strumieni wyjściowych (kopiowanie plików działa ok ale przy wysyłaniu większej ilości danych przez net (nawet 'cat' pliku do konsoli ssh(stdout) a do /dev/null działa bezpoblemowo) proces się kończy a dane się jeszcze wysyłają) na hostingu (branch "pstatic" potwierdza problemy z odczytem większych plików) :(
+* Wtyczka do SublimeText pozwalająca na wyszukiwanie deklaracji w plikach JavaScript w kontekście otwartego projektu w ST.

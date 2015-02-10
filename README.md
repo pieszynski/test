@@ -4,6 +4,7 @@ Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:408
 
 ####Do dodania:
 
+* Aplikacja do konfiguracji QuadCoptera - 1) parametry startowe, 2) generowanie wykresów na żywo
 * Uzupełnienie wszystkich kości szkieletu osiowego i dodatkowego
 * [Grunci](https://github.com/pieszynski/grunci) = Grunt + CI ( [typescript_grunt_task](https://github.com/ribose/dev-grunt-build) )
 * Fikołek - przy starcie systemu NodeJs nie widzi globalnych pakietów (nawet po uruchomieniu pliku /etc/profile.d/node.sh) co uniemożliwia automatyczny start serwera przy starcie maszyny
@@ -25,4 +26,4 @@ Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:408
 ####Zrobione
 * Strona główna i RSS na podstawie pages.json - zadanie GRUNT
 * Problemy wydajnościowe ExpressJs.Static - problem dysków albo kolejek/strumieni wyjściowych (kopiowanie plików działa ok ale przy wysyłaniu większej ilości danych przez net (nawet 'cat' pliku do konsoli ssh(stdout) a do /dev/null działa bezpoblemowo) proces się kończy a dane się jeszcze wysyłają) na hostingu (branch "pstatic" potwierdza problemy z odczytem większych plików) :(
-* Wtyczka do SublimeText pozwalająca na wyszukiwanie deklaracji w plikach JavaScript w kontekście otwartego projektu w ST (niestety wtyczka w pełni rozwija skrzydła dopiero od wersji 3067 a w tym momencie oficjalny stablilny build to 3065).
+* Wtyczka do SublimeText pozwalająca na wyszukiwanie deklaracji w plikach JavaScript w kontekście otwartego projektu w ST (niestety wtyczka w pełni rozwija skrzydła dopiero od wersji 3067 a w tym momencie oficjalny stablilny build to 3065). ```ToDo: 1) Zaznaczanie wystąpień w wynikach oraz umożliwienie kliknięcia w region i przejścia do znalezionego fragmentu kodu (podobnie jak działa standardowy Find In Files w ST. 2) Przejście na wyszukiwanie danych w innym wątku. 3) Dodanie w pasku statusu oznaczenia wyszukiwania.```

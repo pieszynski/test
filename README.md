@@ -4,7 +4,7 @@ Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:408
 
 ####Do dodania:
 
-* Aplikacja do konfiguracji QuadCoptera - 1) sterowanie silnikami przez stronę www, 2) parametry startowe, 3) generowanie wykresów na żywo
+* Aplikacja do konfiguracji QuadCoptera - 1) sterowanie silnikami przez stronę www, 2) parametry startowe, 3) generowanie wykresów na żywo (accel, gyro, comp)
 * Uzupełnienie wszystkich kości szkieletu osiowego i dodatkowego
 * [Grunci](https://github.com/pieszynski/grunci) = Grunt + CI ( [typescript_grunt_task](https://github.com/ribose/dev-grunt-build) )
 * Fikołek - przy starcie systemu NodeJs nie widzi globalnych pakietów (nawet po uruchomieniu pliku /etc/profile.d/node.sh) co uniemożliwia automatyczny start serwera przy starcie maszyny

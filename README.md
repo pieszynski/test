@@ -22,6 +22,7 @@ Repozytorium kodu strony [www.pieszynski.com:4080](http://www.pieszynski.com:408
 * Wtyczka do NodeJS - C++11
 * MonoCecil
 * Ormow
+* > ExpressJs v4?
 
 ####Zrobione
 * Strona główna i RSS na podstawie pages.json - zadanie GRUNT
